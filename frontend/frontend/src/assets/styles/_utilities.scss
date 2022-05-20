@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  font-family: NotoSansRegular;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+textarea,
+.view {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid $color-gray-5;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: $color-gray-7;
+  font-size: medium;
+}
+
+.btn {
+  border-radius: 6px;
+}
