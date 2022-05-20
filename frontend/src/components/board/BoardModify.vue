@@ -38,7 +38,7 @@
 import http from "@/api/http.js";
 
 export default {
-  name: "QuestionModify",
+  name: "BoardModify",
   data() {
     return {
       articleno: 0,
@@ -48,7 +48,7 @@ export default {
     };
   },
   created() {
-    http.get(`/question/${this.$route.params.articleno}`).then(({ data }) => {
+    http.get(`/board/${this.$route.params.articleno}`).then(({ data }) => {
       this.articleno = data.articleno;
       this.userid = data.userid;
       this.subject = data.subject;
@@ -79,12 +79,12 @@ export default {
 
       if (!err) alert(msg);
       // 만약, 내용이 다 입력되어 있다면 modify호출
-      else this.modifyQuestion();
+      else this.modifyBoard();
     },
 
-    modifyQuestion() {
+    modifyBoard() {
       http
-        .put(`/question/${this.$route.params.articleno}`, {
+        .put(`/board/${this.$route.params.articleno}`, {
           articleno: this.articleno,
           userid: this.userid,
           subject: this.subject,
@@ -102,7 +102,7 @@ export default {
     },
     moveList() {
       // 현재 route를 /list로 변경.
-      this.$router.push({ name: "question" });
+      this.$router.push({ name: "board" });
     },
   },
 };

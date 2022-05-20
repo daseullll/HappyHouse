@@ -38,7 +38,7 @@
 import http from "@/api/http.js";
 
 export default {
-  name: "QuestionWrite",
+  name: "BoardWrite",
   data() {
     return {
       userid: "",
@@ -47,7 +47,7 @@ export default {
     };
   },
   methods: {
-    // 입력값 체크하기 - 체크가 성공하면 registQuestion 호출
+    // 입력값 체크하기 - 체크가 성공하면 registBoard 호출
     checkValue() {
       // 사용자 입력값 체크하기
       let err = true;
@@ -68,13 +68,13 @@ export default {
         this.$refs.content.focus());
 
       if (!err) alert(msg);
-      // 만약, 내용이 다 입력되어 있다면 registQuestion 호출
-      else this.registQuestion();
+      // 만약, 내용이 다 입력되어 있다면 registBoard 호출
+      else this.registBoard();
     },
 
-    registQuestion() {
+    registBoard() {
       http
-        .post("/question", {
+        .post("/board", {
           userid: this.userid,
           subject: this.subject,
           content: this.content,
@@ -90,7 +90,7 @@ export default {
         });
     },
     moveList() {
-      this.$router.push({ name: "questionList" });
+      this.$router.push({ name: "boardList" });
     },
   },
 };

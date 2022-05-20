@@ -4,7 +4,7 @@
     <td>
       <router-link
         :to="{
-          name: 'questionDetail',
+          name: 'boardDetail',
           params: { articleno: article.articleno },
         }"
         >{{ article.subject }}</router-link
@@ -19,7 +19,7 @@
 // import moment from "moment";
 
 export default {
-  name: "QuestionListItem",
+  name: "BoardListItem",
   props: {
     article: Object, // 넘어온 객체 받기
   },

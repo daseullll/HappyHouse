@@ -21,11 +21,11 @@
           </tr>
         </thead>
         <tbody>
-          <question-list-item
+          <board-list-item
             v-for="article in articles"
             :key="article.articleno"
             :article="article"
-          ></question-list-item>
+          ></board-list-item>
         </tbody>
       </table>
     </div>
@@ -35,24 +35,24 @@
 
 <script>
 import http from "@/api/http.js";
-import QuestionListItem from "@/components/question/QuestionListItem.vue";
+import BoardListItem from "@/components/board/BoardListItem.vue";
 
 export default {
-  name: "QuestionList",
-  components: { QuestionListItem },
+  name: "BoardList",
+  components: { BoardListItem },
   data() {
     return {
       articles: [],
     };
   },
   created() {
-    http.get("/question").then(({ data }) => {
+    http.get("/board").then(({ data }) => {
       this.articles = data;
     });
   },
   methods: {
     moveWrite() {
-      this.$router.push({ name: "questionWrite" });
+      this.$router.push({ name: "boardWrite" });
     },
   },
 };
