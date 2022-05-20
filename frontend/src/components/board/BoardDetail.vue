@@ -15,7 +15,7 @@
       <div style="padding-top: 15px">
         <router-link
           :to="{
-            name: 'questionModify',
+            name: 'boardModify',
             params: { articleno: article.articleno },
           }"
           class="btn"
@@ -23,13 +23,13 @@
         >
         <router-link
           :to="{
-            name: 'questionDelete',
+            name: 'boardDelete',
             params: { articleno: article.articleno },
           }"
           class="btn"
           >삭제</router-link
         >
-        <router-link to="/question/list" class="btn">목록</router-link>
+        <router-link to="/board/list" class="btn">목록</router-link>
       </div>
     </div>
   </div>
@@ -38,14 +38,14 @@
 <script>
 import http from "@/api/http.js";
 export default {
-  name: "QuestionDetail",
+  name: "BoardDetail",
   data: function () {
     return {
       article: {},
     };
   },
   created() {
-    http.get(`/question/${this.$route.params.articleno}`).then(({ data }) => {
+    http.get(`/board/${this.$route.params.articleno}`).then(({ data }) => {
       this.article = data;
     });
   },
