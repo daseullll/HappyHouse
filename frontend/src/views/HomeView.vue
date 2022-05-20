@@ -1,18 +1,15 @@
 <template>
-  <div>
-    <main-content :msg="msg"></main-content>
-  </div>
+  <hello-world />
 </template>
 
 <script>
-import MainContent from "@/components/MainContent.vue";
+import HelloWorld from "../components/HelloWorld";
+
 export default {
   name: "HomeView",
-  components: { MainContent },
-  data() {
-    return {
-      msg: "해피하우스",
-    };
+
+  components: {
+    HelloWorld,
   },
 };
 </script>
