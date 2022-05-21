@@ -3,9 +3,7 @@
     <b-row class="login">
       <b-col class="col-form">
         <h1 class="fs-48 notoBold mt-20 mb-20">회원가입</h1>
-        <h5 class="fs-20 notoMid mb-10">
-          Enter your ID and password to sign in
-        </h5>
+        <h5 class="fs-20 notoMid mb-10">Enter your ID and password to join</h5>
         <!-- Sign In Form -->
 
         <div class="mb-20">
@@ -25,6 +23,23 @@
               trim
             ></b-form-input>
           </b-form-group>
+          <!--input NAME-->
+          <b-form-group
+            id="form-input-name"
+            label="NAME"
+            label-for="NAME"
+            valid-feedback="Okay!"
+            :invalid-feedback="nameInvalidFeedback"
+            :state="nameState"
+          >
+            <b-form-input
+              id="NAME"
+              v-model="name"
+              :state="nameState"
+              trim
+            ></b-form-input>
+          </b-form-group>
+          <!--input PW-->
           <b-form-group
             id="form-input-pw"
             label="Password"
@@ -40,6 +55,38 @@
               trim
             ></b-form-input>
           </b-form-group>
+          <!--input EMAIL-->
+          <b-form-group
+            id="form-input-email"
+            label="EMAIL"
+            label-for="EMAIL"
+            valid-feedback="Okay!"
+            :invalid-feedback="emailInvalidFeedback"
+            :state="emailState"
+          >
+            <b-form-input
+              id="EMAIL"
+              v-model="email"
+              :state="emailState"
+              trim
+            ></b-form-input>
+          </b-form-group>
+          <!--input PHONE-->
+          <b-form-group
+            id="form-input-phone"
+            label="PHONE"
+            label-for="PHONE"
+            valid-feedback="Okay!"
+            :invalid-feedback="phoneInvalidFeedback"
+            :state="phoneState"
+          >
+            <b-form-input
+              id="PHONE"
+              v-model="phone"
+              :state="phoneState"
+              trim
+            ></b-form-input>
+          </b-form-group>
         </div>
         <!-- btn submit -->
         <div>
@@ -49,24 +96,19 @@
             html-type="submit"
             class="login-form-button btn-user notoBold mb-15"
           >
-            LOG IN
+            JOIN
           </button>
         </div>
         <!--find ID / PW -->
         <div>
           <p class="notoNor findid">
-            Don't have an account?
+            Do you have an account?
             <router-link to="/join" class="notoBold text-dark">
               JOIN</router-link
             >
           </p>
-          <p class="notoNor findpw">
-            Forget your Password?
-            <router-link to="/join" class="notoBold text-dark">
-              FIND PW</router-link
-            >
-          </p>
         </div>
+
         <div class="line"></div>
         <!--social login-->
         <form class="social-login">
@@ -101,6 +143,15 @@ export default {
     pwState() {
       return this.pw.length >= 4;
     },
+    nameState() {
+      return this.name.length >= 4;
+    },
+    emailState() {
+      return this.email.length >= 4;
+    },
+    phoneState() {
+      return this.phone.length >= 4;
+    },
     idInvalidFeedback() {
       if (this.id.length > 0) {
         return "Enter at least 4 characters.";
@@ -113,11 +164,32 @@ export default {
       }
       return "";
     },
+    nameInvalidFeedback() {
+      if (this.name.length > 0) {
+        return "Enter at least 2 characters.";
+      }
+      return "";
+    },
+    emailInvalidFeedback() {
+      if (this.email.length > 0) {
+        return "Enter an available email";
+      }
+      return "";
+    },
+    phoneInvalidFeedback() {
+      if (this.phone.length > 0) {
+        return "Enter at least 10 characters.";
+      }
+      return "";
+    },
   },
   data() {
     return {
       id: "",
       pw: "",
+      name: "",
+      phone: "",
+      email: "",
     };
   },
 };
@@ -173,7 +245,10 @@ export default {
     border: $color-gray-8 !important;
   }
   #ID,
-  #PW {
+  #PW,
+  #EMAIL,
+  #PHONE,
+  #NAME {
     width: 330px;
     height: 48px;
     margin-bottom: 8px;
