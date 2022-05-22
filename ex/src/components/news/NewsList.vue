@@ -4,7 +4,7 @@
       <span
         ><img class="titleIcon" src="@/assets/images/ThoughtEmoji.png" />
       </span>
-      <span class="underline title fs-48 notoBold">SSAFY 글 목록</span>
+      <span class="underline title fs-48 notoBold">뉴스</span>
     </div>
     <div style="text-align: right">
       <button @click="moveWrite">글 등록</button>
@@ -26,11 +26,11 @@
           </tr>
         </thead>
         <tbody>
-          <board-list-item
+          <news-list-item
             v-for="article in articles"
             :key="article.articleno"
             :article="article"
-          ></board-list-item>
+          ></news-list-item>
         </tbody>
       </table>
     </div>
@@ -40,24 +40,24 @@
 
 <script>
 import http from "@/api/http.js";
-import BoardListItem from "@/components/board/BoardListItem.vue";
+import NewsListItem from "@/components/news/NewsListItem.vue";
 
 export default {
-  name: "BoardList",
-  components: { BoardListItem },
+  name: "NewsList",
+  components: { NewsListItem },
   data() {
     return {
       articles: [],
     };
   },
   created() {
-    http.get("/board").then(({ data }) => {
+    http.get("/news").then(({ data }) => {
       this.articles = data;
     });
   },
   methods: {
     moveWrite() {
-      this.$router.push({ name: "questionWrite" });
+      this.$router.push({ name: "newsWrite" });
     },
   },
 };

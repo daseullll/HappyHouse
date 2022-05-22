@@ -73,15 +73,15 @@
           <form-item>
             <button class="btn-kakao-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/kakao.svg" /></span>
-              카카오로 시작하기
+              <span>카카오로 시작하기</span>
             </button>
             <button class="btn-naver-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/naver.svg" /></span>
-              네이버로 시작하기
+              <span>네이버로 시작하기</span>
             </button>
             <button class="btn-google-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/google.svg" /></span>
-              구글로 시작하기
+              <span>구글로 시작하기</span>
             </button>
           </form-item>
         </form>
@@ -171,6 +171,11 @@ export default {
     background-color: $color-white;
     color: $color-dark !important;
     border: $color-gray-8 !important;
+  }
+
+  .btn-user {
+    // display: flex;
+    align-items: center;
   }
   #ID,
   #PW {

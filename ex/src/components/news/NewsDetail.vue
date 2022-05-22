@@ -1,6 +1,11 @@
 <template>
   <div class="regist">
-    <h1 class="underline">SSAFY 글 정보</h1>
+    <div class="title-container">
+      <span
+        ><img class="titleIcon" src="@/assets/images/ThoughtEmoji.png" />
+      </span>
+      <span class="underline title fs-48 notoBold">SSAFY 글 목록</span>
+    </div>
     <div class="regist_form">
       <label for="articleno">글번호</label>
       <div class="view">{{ article.articleno }}</div>

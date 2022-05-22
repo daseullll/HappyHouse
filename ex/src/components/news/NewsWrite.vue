@@ -1,6 +1,11 @@
 <template>
   <div class="regist">
-    <h1 class="underline">SSAFY 글 등록</h1>
+    <div class="title-container">
+      <span
+        ><img class="titleIcon" src="@/assets/images/ThoughtEmoji.png" />
+      </span>
+      <span class="underline title fs-48 notoBold">뉴스</span>
+    </div>
     <div class="regist_form">
       <label for="userid">작성자</label>
       <input
