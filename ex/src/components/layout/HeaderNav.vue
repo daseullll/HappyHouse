@@ -10,7 +10,8 @@
       <router-link to="/house">주택</router-link>
       <router-link to="/house">학군</router-link>
       <!-- <router-link to="/notice">커뮤니티</router-link> -->
-      <router-link to="/question">Q&A</router-link>
+      <router-link to="/board">커뮤니티</router-link>
+      <router-link to="/news">뉴스</router-link>
     </div>
 
     <div class="user">
