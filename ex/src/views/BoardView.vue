@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <h2 class="text-center">뷰뷰뷰뷰뷰뷰</h2>
+  <div class="container outer">
+    <h2 class="text-center">temp</h2>
     <router-view></router-view>
   </div>
 </template>

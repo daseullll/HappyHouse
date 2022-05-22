@@ -11,12 +11,12 @@ import JoinView from "@/views/JoinView.vue";
 // // import UserMyPage from "@/components/user/UserMyPage.vue";
 // // import UserModify from "@/components/user/UserModify.vue";
 
-// import NoticeView from "../views/NoticeView.vue";
-// // import NoticeList from "@/components/notice/NoticeList.vue";
-// // import NoticeWrite from "@/components/notice/NoticeWrite.vue";
-// // import NoticeDetail from "@/components/notice/NoticeDetail.vue";
-// // import NoticeModify from "@/components/notice/NoticeModify.vue";
-// // import NoticeDelete from "@/components/notice/NoticeDelete.vue";
+import NewsView from "../views/NewsView.vue";
+import NewsList from "@/components/news/NewsList.vue";
+import NewsWrite from "@/components/news/NewsWrite.vue";
+import NewsDetail from "@/components/news/NewsDetail.vue";
+import NewsModify from "@/components/news/NewsModify.vue";
+import NewsDelete from "@/components/news/NewsDelete.vue";
 
 import SchoolView from "@/views/SchoolView.vue";
 
@@ -77,40 +77,45 @@ const routes = [
   //     // },
   //     // ],
   //   },
-  //   {
-  //     // 공지사항
-  //     path: "/notice",
-  //     name: "notice",
-  //     component: NoticeView,
-  //     redirect: "/notice/list",
-  //     // children: [
-  //     //   {
-  //     //     path: "list",
-  //     //     name: "noticeList",
-  //     //     component: () => import("@/components/notice/NoticeList.vue"),
-  //     //   },
-  //     //   {
-  //     //     path: "write",
-  //     //     name: "noticeWrite",
-  //     //     component: () => import("@/components/notice/NoticeWrite.vue"),
-  //     //   },
-  //     //   {
-  //     //     path: "detail/:articleno",
-  //     //     name: "noticeDetail",
-  //     //     component: () => import("@/components/notice/NoticeDetail.vue"),
-  //     //   },
-  //     //   {
-  //     //     path: "modify/:articleno",
-  //     //     name: "noticeModify",
-  //     //     component: () => import("@/components/notice/NoticeModify.vue"),
-  //     //   },
-  //     //   {
-  //     //     path: "delete/:articleno",
-  //     //     name: "noticeDelete",
-  //     //     component: () => import("@/components/notice/NoticeDelete.vue"),
-  //     //   },
-  //     // ],
-  //   },
+  {
+    // 뉴스
+    path: "/news",
+    name: "news",
+    component: NewsView,
+    redirect: "/news/list",
+    children: [
+      {
+        path: "list",
+        name: "newsList",
+        component: NewsList,
+        // component: () => import("@/components/news/NoticeList.vue"),
+      },
+      {
+        path: "write",
+        name: "newsWrite",
+        component: NewsWrite,
+        // component: () => import("@/components/news/NewsWrite.vue"),
+      },
+      {
+        path: "detail/:articleno",
+        name: "newsDetail",
+        component: NewsDetail,
+        // component: () => import("@/components/news/NewsDetail.vue"),
+      },
+      {
+        path: "modify/:articleno",
+        name: "newsModify",
+        component: NewsModify,
+        // component: () => import("@/components/news/NewsModify.vue"),
+      },
+      {
+        path: "delete/:articleno",
+        name: "newsDelete",
+        component: NewsDelete,
+        // component: () => import("@/components/news/NewsDelete.vue"),
+      },
+    ],
+  },
 
   {
     // 질문게시판
