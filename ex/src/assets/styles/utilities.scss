@@ -16,6 +16,11 @@ a {
   height: 70px;
   margin-right: 40px;
 }
+.title-container {
+  display: flex; // 중앙 정렬
+  align-items: center; // 중앙 정렬
+  color: $color-dark;
+}
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -30,6 +35,9 @@ a {
 }
 .mt-20 {
   margin-top: 20px;
+}
+.mt-15 {
+  margin-top: 15px;
 }
 input {
   background-color: inherit;
@@ -47,4 +55,30 @@ input:focus {
   line-height: 26px;
   border: none;
   align-content: center;
+}
+
+.write-box {
+  margin-top: 75px;
+}
+
+.write-table {
+  text-align: left;
+  width: 100%;
+  color: $color-dark;
+  td {
+    padding: 30px 50px 30px 30px;
+  }
+  .tb-first-line {
+    border-top: 1.5px solid $color-gray-7;
+  }
+  .tb-last-line {
+    border-bottom: 1.5px solid $color-gray-7;
+  }
+  .tb-line-line {
+    border-bottom: 1px solid $color-gray-5;
+  }
+  .tb-category {
+    border-right: 1px solid $color-gray-5;
+    width: 200px;
+  }
 }

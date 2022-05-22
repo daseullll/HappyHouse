@@ -1,36 +1,76 @@
 <template>
   <div class="regist">
-    <h1 class="underline">SSAFY 글 등록</h1>
-    <div class="regist_form">
-      <label for="userid">작성자</label>
-      <input
-        type="text"
-        id="userid"
-        name="userid"
-        v-model="userid"
-        ref="userid"
-      /><br />
-      <label for="subject">제목</label>
-      <input
-        type="text"
-        id="subject"
-        name="subject"
-        v-model="subject"
-        ref="subject"
-      /><br />
-      <label for="content">내용</label><br />
-      <textarea
-        id="content"
-        name="content"
-        v-model="content"
-        ref="content"
-        cols="35"
-        rows="5"
-      ></textarea
-      ><br />
-      <button @click="checkValue">등록</button>
-      <button @click="moveList">목록</button>
+    <div class="title-container">
+      <span
+        ><img class="titleIcon" src="@/assets/images/PencilEmoji.png" />
+      </span>
+      <span class="underline title fs-48 notoBold">커뮤니티 글 작성</span>
     </div>
+    <div class="sub-title fs-32 mt-15 notoMid">알찬 꿀팁들을 공유해주세요!</div>
+    <!--작성시작-->
+    <div class="regist_form write-box">
+      <table class="write-table">
+        <tbody>
+          <tr class="tb-first-line tb-line-line">
+            <td class="tb-category">
+              <label for="userid" class="fs-22 notoMid">작성자</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="userid"
+                name="userid"
+                v-model="userid"
+                ref="userid"
+              /><br />
+            </td>
+          </tr>
+          <tr class="tb-line-line">
+            <td class="tb-category">
+              <label for="subject" class="fs-22 notoMid">제목</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                v-model="subject"
+                placeholder="제목을 입력하세요"
+                ref="subject"
+              /><br />
+            </td>
+          </tr>
+          <tr class="tb-last-line">
+            <td class="tb-category">
+              <label for="content" class="fs-22 notoMid">내용</label><br />
+            </td>
+            <td>
+              <textarea
+                id="content"
+                name="content"
+                v-model="content"
+                placeholder="내용을 입력하세요"
+                ref="content"
+                cols="110"
+                rows="15"
+              ></textarea
+              ><br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--작성끝-->
+    </div>
+    <!--버튼시작-->
+    <div class="write-btn-form">
+      <button class="board-write-btn-cancle fs-18 notoMid" @click="moveList">
+        취소
+      </button>
+      <button class="board-write-btn-cancle fs-18 notoMid" @click="checkValue">
+        작성
+      </button>
+    </div>
+    <!--버튼 끝-->
   </div>
 </template>
 
@@ -81,9 +121,9 @@ export default {
         })
         .then(({ data }) => {
           // 서버에서 정상적인 값이 넘어 왔을경우 실행.
-          let msg = "등록 처리시 문제가 발생했습니다.";
+          let msg = "문제가 발생했습니다.";
           if (data === "success") {
-            msg = "등록이 완료되었습니다.";
+            msg = "글 작성이 완료되었습니다.";
           }
           alert(msg);
           this.moveList();
@@ -96,4 +136,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.write-btn-form {
+  margin-top: 70px;
+  align-content: center;
+  display: flex;
+  .board-write-btn-cancle {
+    position: relative;
+    width: 150px;
+    height: 48px;
+
+    background: #ff6b6b;
+    border-radius: 6px;
+    border: none;
+    color: $color-white;
+    margin: 0 25px;
+  }
+  justify-content: center;
+}
+
+#content {
+  border: none;
+}
+</style>

@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     moveWrite() {
-      this.$router.push({ name: "questionWrite" });
+      this.$router.push({ name: "boardWrite" });
     },
   },
 };
