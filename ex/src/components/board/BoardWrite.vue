@@ -2,11 +2,13 @@
   <div class="regist">
     <div class="title-container">
       <span
-        ><img class="titleIcon" src="@/assets/images/PencilEmoji.png" />
+        ><img class="titleIcon" src="@/assets/images/emoji/PencilEmoji.png" />
       </span>
-      <span class="underline title fs-48 notoBold">커뮤니티 글 작성</span>
+      <span class="underline title fs-48 notoBold">글 작성</span>
     </div>
-    <div class="sub-title fs-32 mt-15 notoMid">알찬 꿀팁들을 공유해주세요!</div>
+    <div class="sub-title fs-24 mt-15 notoMid">
+      나만 아는 꿀팁들을 공유해주세요!
+    </div>
     <!--작성시작-->
     <div class="regist_form write-box">
       <table class="write-table">
@@ -21,6 +23,7 @@
                 id="userid"
                 name="userid"
                 v-model="userid"
+                placeholder="회원이 아니신가요?"
                 ref="userid"
               /><br />
             </td>
@@ -66,8 +69,8 @@
       <button class="board-write-btn-cancle fs-18 notoMid" @click="moveList">
         취소
       </button>
-      <button class="board-write-btn-cancle fs-18 notoMid" @click="checkValue">
-        작성
+      <button class="board-write-btn-confirm fs-18 notoMid" @click="checkValue">
+        확인
       </button>
     </div>
     <!--버튼 끝-->
@@ -137,11 +140,28 @@ export default {
 </script>
 
 <style lang="scss">
+.write-box {
+  margin-top: 75px;
+}
+
 .write-btn-form {
-  margin-top: 70px;
+  // margin-top: 70px;
+  margin: 70px 20px 0px 20px;
   align-content: center;
   display: flex;
+
   .board-write-btn-cancle {
+    position: relative;
+    width: 150px;
+    height: 48px;
+
+    background: $color-gray-9;
+    border-radius: 6px;
+    border: none;
+    color: $color-white;
+    margin: 0 25px;
+  }
+  .board-write-btn-confirm {
     position: relative;
     width: 150px;
     height: 48px;

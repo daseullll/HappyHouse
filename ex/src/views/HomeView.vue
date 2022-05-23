@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-banner">
     <main-content :msg="msg"></main-content>
   </div>
 </template>
@@ -16,3 +16,9 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.main-banner {
+  height: 540px;
+  background-color: $KAKAO_YELLOW;
+}
+</style>
