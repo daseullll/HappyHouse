@@ -31,7 +31,7 @@
             label-for="Password"
             valid-feedback="Okay!"
             :invalid-feedback="pwInvalidFeedback"
-            :state="pWstate"
+            :state="pwState"
           >
             <b-form-input
               id="PW"
