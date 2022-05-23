@@ -103,8 +103,8 @@
         <div>
           <p class="notoNor findid">
             Do you have an account?
-            <router-link to="/join" class="notoBold text-dark">
-              JOIN</router-link
+            <router-link to="/login" class="notoBold text-dark">
+              LOGIN</router-link
             >
           </p>
         </div>

@@ -2,7 +2,7 @@
   <div class="regist">
     <div class="title-container">
       <span
-        ><img class="titleIcon" src="@/assets/images/ThoughtEmoji.png" />
+        ><img class="titleIcon" src="@/assets/images/emoji/ThoughtEmoji.png" />
       </span>
       <span class="underline title fs-48 notoBold">SSAFY 글 목록</span>
     </div>

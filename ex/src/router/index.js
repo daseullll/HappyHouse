@@ -13,10 +13,7 @@ import JoinView from "@/views/JoinView.vue";
 
 import NewsView from "../views/NewsView.vue";
 import NewsList from "@/components/news/NewsList.vue";
-import NewsWrite from "@/components/news/NewsWrite.vue";
 import NewsDetail from "@/components/news/NewsDetail.vue";
-import NewsModify from "@/components/news/NewsModify.vue";
-import NewsDelete from "@/components/news/NewsDelete.vue";
 
 import SchoolView from "@/views/SchoolView.vue";
 
@@ -82,7 +79,7 @@ const routes = [
     path: "/news",
     name: "news",
     component: NewsView,
-    redirect: "/news/list",
+    // redirect: "/news/list",
     children: [
       {
         path: "list",
@@ -90,29 +87,12 @@ const routes = [
         component: NewsList,
         // component: () => import("@/components/news/NoticeList.vue"),
       },
-      {
-        path: "write",
-        name: "newsWrite",
-        component: NewsWrite,
-        // component: () => import("@/components/news/NewsWrite.vue"),
-      },
+
       {
         path: "detail/:articleno",
         name: "newsDetail",
         component: NewsDetail,
         // component: () => import("@/components/news/NewsDetail.vue"),
-      },
-      {
-        path: "modify/:articleno",
-        name: "newsModify",
-        component: NewsModify,
-        // component: () => import("@/components/news/NewsModify.vue"),
-      },
-      {
-        path: "delete/:articleno",
-        name: "newsDelete",
-        component: NewsDelete,
-        // component: () => import("@/components/news/NewsDelete.vue"),
       },
     ],
   },

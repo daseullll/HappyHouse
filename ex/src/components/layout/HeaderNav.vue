@@ -13,7 +13,6 @@
       <router-link to="/board">커뮤니티</router-link>
       <router-link to="/news">뉴스</router-link>
     </div>
-
     <div class="user">
       <router-link to="/join">회원가입</router-link>
       <router-link to="/login">로그인</router-link>
@@ -31,7 +30,7 @@ export default {
 
 <style lang="scss">
 .header {
-  height: 64px;
+  height: 80px;
   //   background-color: $KAKAO-YELLOW;
   //   position: absolute;
   // position: absolute;
@@ -54,10 +53,10 @@ export default {
   flex-direction: row;
   align-items: flex-start;
   padding: 0px;
-  gap: 32px;
+  gap: 40px;
 
   position: absolute;
-  width: 322px;
+  // width: 322px;
   height: 23px;
   left: calc(50% - 322px / 2 - 272.84px);
   top: 26px;
@@ -73,6 +72,6 @@ export default {
   width: 128px;
   height: 23px;
   left: calc(50% - 128px / 2 + 521px);
-  top: 26 px;
+  top: 26px;
 }
 </style>
