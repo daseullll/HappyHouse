@@ -21,6 +21,9 @@ a {
   align-items: center; // 중앙 정렬
   color: $color-dark;
 }
+.mb-30 {
+  margin-bottom: 30px;
+}
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -36,8 +39,29 @@ a {
 .mt-20 {
   margin-top: 20px;
 }
+.mt--15 {
+  margin-top: -15px;
+}
 .mt-15 {
   margin-top: 15px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.mr-15 {
+  margin-right: 15px;
+}
+.mr-30 {
+  margin-right: 30px;
+}
+.ml-30 {
+  margin-left: 30px;
+}
+.ml-10 {
+  margin-left: 10px;
 }
 input {
   background-color: inherit;
@@ -58,7 +82,8 @@ input:focus {
 }
 
 .write-box,
-.news-box {
+.news-box,
+.board-box {
   margin-top: 75px;
 }
 
@@ -85,5 +110,20 @@ input:focus {
 }
 
 .sub-title {
+  text-align: left;
+}
+
+button:hover {
+  background-color: $color-primary;
+}
+
+.board-title {
+  text-align: center !important;
+  display: block;
+}
+.ta-r {
+  text-align: right;
+}
+.ta-l {
   text-align: left;
 }

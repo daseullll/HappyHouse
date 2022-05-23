@@ -5,7 +5,7 @@
         ><img src="@/assets/images/ssafy_logo.png" class="logoimg"
       /></router-link>
     </div>
-    <div class="catagory fs-16 notoReg">
+    <div class="catagory">
       <router-link to="/">홈</router-link>
       <router-link to="/house">주택</router-link>
       <router-link to="/house">학군</router-link>
@@ -31,13 +31,12 @@ export default {
 <style lang="scss">
 .header {
   height: 80px;
-  //   background-color: $KAKAO-YELLOW;
+  width: 100%;
   //   position: absolute;
   // position: absolute;
   left: 0%;
-  right: 0%;
   top: 0%;
-  bottom: 0%;
+  // position: fixed;
 
   background: #ffffff;
   box-shadow: 0px 2px 9px 8px rgba(210, 210, 210, 0.65);
@@ -56,22 +55,31 @@ export default {
   gap: 40px;
 
   position: absolute;
-  // width: 322px;
-  height: 23px;
-  left: calc(50% - 322px / 2 - 272.84px);
+  left: 270px;
   top: 26px;
+  font-size: 16px;
+  a {
+    color: $color-gray-7;
+    font-family: "NotoSansMedium";
+  }
 }
 .user {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex-end;
   padding: 0px;
   gap: 24px;
 
   position: absolute;
   width: 128px;
   height: 23px;
-  left: calc(50% - 128px / 2 + 521px);
+  // left: calc(50% - 128px / 2 + 521px);
+  right: 120px;
   top: 26px;
+  font-size: 16px;
+  a {
+    color: $color-gray-6;
+    font-family: "NotoSansMedium";
+  }
 }
 </style>
