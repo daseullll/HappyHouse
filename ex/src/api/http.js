@@ -7,8 +7,6 @@ export default axios.create({
     "Content-type": "application/json",
   },
 });
-<<<<<<< HEAD
-=======
 
 function apiInstance() {
   const instance = axios.create({
@@ -21,4 +19,3 @@ function apiInstance() {
 }
 
 export { apiInstance };
->>>>>>> origin/hi
