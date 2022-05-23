@@ -20,7 +20,7 @@
           >
             <b-form-input
               id="ID"
-              v-model="id"
+              v-model="user.userid"
               :state="idState"
               trim
             ></b-form-input>
@@ -35,7 +35,7 @@
           >
             <b-form-input
               id="PW"
-              v-model="pw"
+              v-model="user.userpwd"
               :state="pwState"
               trim
             ></b-form-input>
@@ -48,6 +48,7 @@
             block
             html-type="submit"
             class="login-form-button btn-user notoBold mb-15"
+            @click="confirm"
           >
             LOG IN
           </button>
@@ -93,22 +94,28 @@
   </b-container>
 </template>
 <script>
+import { mapState, mapActions } from "vuex";
+
+const memberStore = "memberStore";
+
 export default {
   computed: {
+    ...mapState(memberStore, ["isLogin", "isLoginError"]),
+
     idState() {
-      return this.id.length >= 4;
+      return this.user.userid.length >= 4;
     },
     pwState() {
-      return this.pw.length >= 4;
+      return this.user.userpwd.length >= 4;
     },
     idInvalidFeedback() {
-      if (this.id.length > 0) {
+      if (this.user.userid.length > 0) {
         return "Enter at least 4 characters.";
       }
       return "";
     },
     pwInvalidFeedback() {
-      if (this.pw.length > 0) {
+      if (this.user.userpwd.length > 0) {
         return "Enter at least 4 characters.";
       }
       return "";
@@ -116,9 +123,26 @@ export default {
   },
   data() {
     return {
-      id: "",
-      pw: "",
+      user: {
+        userid: "",
+        userpwd: "",
+      },
     };
+  },
+
+  methods: {
+    ...mapActions(memberStore, ["userConfirm", "getUserInfo"]),
+    async confirm() {
+      await this.userConfirm(this.user);
+      let token = sessionStorage.getItem("access-token");
+      if (this.isLogin) {
+        await this.getUserInfo(token);
+        this.$router.push({ name: "home" });
+      }
+    },
+    movePage() {
+      this.$router.push({ name: "signup" });
+    },
   },
 };
 </script>
