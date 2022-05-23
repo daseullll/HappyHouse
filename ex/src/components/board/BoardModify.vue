@@ -68,7 +68,7 @@
       <button class="board-write-btn-cancle fs-18 notoMid" @click="moveList">
         취소
       </button>
-      <button class="board-write-btn-confirm fs-18 notoMid" @click="moveList">
+      <button class="board-write-btn-confirm fs-18 notoMid" @click="checkValue">
         수정
       </button>
     </div>
