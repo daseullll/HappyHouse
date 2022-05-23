@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="fullpage main banner">
     <!--section 1 start-->
     <section class="active page-container num1">
@@ -91,11 +92,31 @@
 export default {};
 </script>
 
+=======
+  <div class="main-banner">
+    <main-content :msg="msg"></main-content>
+  </div>
+</template>
+
+<script>
+import MainContent from "@/components/MainContent.vue";
+export default {
+  name: "HomeView",
+  components: { MainContent },
+  data() {
+    return {
+      msg: "해피하우스",
+    };
+  },
+};
+</script>
+>>>>>>> origin/hi
 <style lang="scss">
 .main-banner {
   height: 540px;
   background-color: $KAKAO_YELLOW;
 }
+<<<<<<< HEAD
 
 .page-container {
   // position: absolute;
@@ -187,4 +208,6 @@ export default {};
   margin: 60px 0 60px 0;
   padding: 10px 60px;
 }
+=======
+>>>>>>> origin/hi
 </style>

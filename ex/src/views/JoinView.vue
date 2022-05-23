@@ -18,7 +18,7 @@
           >
             <b-form-input
               id="ID"
-              v-model="id"
+              v-model="userid"
               :state="idState"
               trim
             ></b-form-input>
@@ -34,7 +34,7 @@
           >
             <b-form-input
               id="NAME"
-              v-model="name"
+              v-model="username"
               :state="nameState"
               trim
             ></b-form-input>
@@ -46,11 +46,11 @@
             label-for="Password"
             valid-feedback="Okay!"
             :invalid-feedback="pwInvalidFeedback"
-            :state="pWstate"
+            :state="pwState"
           >
             <b-form-input
               id="PW"
-              v-model="pw"
+              v-model="userpwd"
               :state="pwState"
               trim
             ></b-form-input>
@@ -95,6 +95,7 @@
             block
             html-type="submit"
             class="login-form-button btn-user notoBold mb-15"
+            @click="registUser"
           >
             JOIN
           </button>
@@ -135,16 +136,18 @@
   </b-container>
 </template>
 <script>
+import http from "@/api/http.js";
+
 export default {
   computed: {
     idState() {
-      return this.id.length >= 4;
+      return this.userid.length >= 4;
     },
     pwState() {
-      return this.pw.length >= 4;
+      return this.userpwd.length >= 4;
     },
     nameState() {
-      return this.name.length >= 4;
+      return this.username.length >= 4;
     },
     emailState() {
       return this.email.length >= 4;
@@ -153,19 +156,19 @@ export default {
       return this.phone.length >= 4;
     },
     idInvalidFeedback() {
-      if (this.id.length > 0) {
+      if (this.userid.length > 0) {
         return "Enter at least 4 characters.";
       }
       return "";
     },
     pwInvalidFeedback() {
-      if (this.pw.length > 0) {
+      if (this.userpwd.length > 0) {
         return "Enter at least 4 characters.";
       }
       return "";
     },
     nameInvalidFeedback() {
-      if (this.name.length > 0) {
+      if (this.username.length > 0) {
         return "Enter at least 2 characters.";
       }
       return "";
@@ -185,12 +188,36 @@ export default {
   },
   data() {
     return {
-      id: "",
-      pw: "",
-      name: "",
+      userid: "",
+      userpwd: "",
+      username: "",
       phone: "",
       email: "",
     };
+  },
+  methods: {
+    registUser() {
+      http
+        .post("/user/register", {
+          userid: this.userid,
+          userpwd: this.userpwd,
+          username: this.username,
+          email: this.email,
+        })
+        .then(({ data }) => {
+          // 서버에서 정상적인 값이 넘어 왔을경우 실행.
+          let msg = "문제가 발생했습니다.";
+          if (data === "success") {
+            msg = "회원가입이 완료되었습니다.";
+          }
+          alert(msg);
+          this.moveList();
+        });
+    },
+
+    moveList() {
+      this.$router.push({ name: "home" });
+    },
   },
 };
 </script>
