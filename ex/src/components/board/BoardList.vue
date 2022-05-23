@@ -15,13 +15,13 @@
     <div class="board-box" v-if="articles.length">
       <table class="board-table" id="book-list">
         <colgroup>
-          <col style="width: 5%" />
-          <col style="width: 45%" />
+          <col style="width: 15%" />
+          <col style="width: 35%" />
           <col style="width: 25%" />
           <col style="width: 25%" />
         </colgroup>
         <thead>
-          <tr>
+          <tr class="fs-18 notoMid tb-first-line">
             <th>글번호</th>
             <th>제목</th>
             <th>작성자</th>
@@ -70,8 +70,26 @@ export default {
 </script>
 
 <style lang="scss">
-board-box {
-  margin-top: 75px;
+.board-table {
+  text-align: center;
+  width: 100%;
+  color: $color-dark;
+  td,
+  th {
+    padding: 15px 0px 15px 0px;
+  }
+
+  .tb-first-line {
+    padding: 20px 0;
+    border-top: 1.5px solid $color-gray-7;
+    border-bottom: 1.5px solid $color-gray-7;
+  }
+  .tb-last-line {
+    border-bottom: 1.5px solid $color-gray-7;
+  }
+  .tb-line-line {
+    border-bottom: 1px solid $color-gray-5;
+  }
 }
 
 .board-box-empty {
