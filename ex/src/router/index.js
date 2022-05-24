@@ -5,10 +5,10 @@ import HomeView from "../views/HomeView.vue";
 // import Vuex from "vuex";
 import HouseView from "../views/HouseView.vue";
 
-// // import UserView from "@/views/UserView.vue";
+import UserView from "@/views/UserView.vue";
 import LoginView from "../views/LoginView.vue";
 import JoinView from "@/views/JoinView.vue";
-// // import UserMyPage from "@/components/user/UserMyPage.vue";
+import UserMyPage from "@/components/user/UserMyPage.vue";
 // // import UserModify from "@/components/user/UserModify.vue";
 
 import NewsView from "../views/NewsView.vue";
@@ -57,23 +57,24 @@ const routes = [
     component: JoinView,
   },
 
-  //   {
-  //     // path: "/user",
-  //     // name: "user",
-  //     // component: () => import("@/views/UserView.vue"),
-  //     // children: [
-  //     // {
-  //     //   path: "usermypage",
-  //     //   name: "userMyPage",
-  //     //   component: () => import("@/components/user/UserMyPage.vue"),
-  //     // },
-  //     // {
-  //     //   path: "usermodify",
-  //     //   name: "userModify",
-  //     //   component: () => import("@/components/user/UserModify.vue"),
-  //     // },
-  //     // ],
-  //   },
+  {
+    path: "/user",
+    name: "user",
+    redirect: "/user/mypage",
+    component: UserView,
+    children: [
+      {
+        path: "mypage",
+        name: "MyPage",
+        component: UserMyPage,
+      },
+      // {
+      //   path: "modify",
+      //   name: "Modify",
+      //   component: () => import("@/components/user/UserModify.vue"),
+      // },
+    ],
+  },
   {
     // 뉴스
     path: "/news",

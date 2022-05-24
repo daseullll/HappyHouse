@@ -4,10 +4,12 @@
     <section class="active page-container num1">
       <div class="section-contents">
         <div class="home-title">
+          <div class="title-main">
+            <img src="@/assets/images/logo-gray-main.svg" class="logo-home" />
+          </div>
           <div class="sub-main fs-28 notoMid">
             주택정보와 학군 정보를 한눈에
           </div>
-          <div class="title-main fs-80 notoBlack">해피하우스</div>
           <div class="sub-sub-main fs-20 notoMid">
             공공데이터와 카카오맵 API를 활용한
           </div>
@@ -92,10 +94,10 @@ export default {};
 </script>
 
 <style lang="scss">
-.main-banner {
-  height: 540px;
-  background-color: $KAKAO_YELLOW;
-}
+// .main-banner {
+//   height: 540px;
+//   background-color: $KAKAO_YELLOW;
+// }
 
 .page-container {
   // position: absolute;
@@ -105,23 +107,26 @@ export default {};
   height: 100%;
 }
 .num1 {
-  background-color: red;
   width: 100vw;
   height: 100vh;
 
-  padding: 80px 0 0px 0;
+  padding: vh(100px) 0 0 0;
   .title-main {
-    letter-spacing: 0.1em;
-    margin-bottom: 40px;
+    margin-top: vh(20px);
+    margin-bottom: vh(40px);
+  }
+  .logo-home {
+    margin-top: vh(30px);
+    height: vh(220px);
   }
   .sub-main {
     // letter-spacing: 0.05em;
     color: $color-dark;
-    margin-top: 30px;
+    margin-top: vh(80px);
+    margin-bottom: vh(50px);
   }
 
   .sub-sub-main {
-    width: 500px;
     color: $color-gray-9;
   }
 }
@@ -130,9 +135,9 @@ export default {};
   background-color: blue;
   width: 100vw;
   height: 100vh;
-  padding: 80px 0 0px 0;
+  padding: vh(80px) 0 0 0;
   .title-main {
-    margin-bottom: 0px;
+    margin-bottom: vh(0px);
   }
   .sub-sub-main {
     color: $color-gray-9;
@@ -143,7 +148,7 @@ export default {};
   background-color: green;
   width: 100vw;
   height: 100vh;
-  padding: 80px 0 0px 0;
+  padding: vh(80px) 0 0 0;
   .title-main {
     margin-bottom: 0px;
   }
@@ -153,38 +158,38 @@ export default {};
 }
 
 .section-contents {
-  padding: 150px 120px;
+  margin: vh(150px) vw(130px);
 }
 
 .btn-main {
-  border-radius: 30px;
-  line-height: 40px;
+  border-radius: 60px;
+  line-height: vh(40px);
   border: none;
   align-content: center;
   color: $color-white;
   background-color: $color-primary;
-  margin: 60px 0;
-  padding: 20px 80px;
+  margin: vh(60px) 0;
+  padding: vh(20px) vw(80px);
 }
 .btn-num2 {
   border-radius: 30px;
-  line-height: 40px;
+  line-height: vh(40px);
   border: none;
   align-content: center;
   color: $color-white;
   background-color: $color-primary;
-  margin: 60px 0 60px 30px;
-  padding: 10px 60px;
+  margin: vh(60px) 0 vh(60px) vw(30px);
+  padding: vh(10px) vw(60px);
 }
 
 .btn-num3 {
   border-radius: 30px;
-  line-height: 40px;
+  line-height: vh(40px);
   border: none;
   align-content: center;
   color: $color-white;
   background-color: $color-primary;
-  margin: 60px 0 60px 0;
-  padding: 10px 60px;
+  margin: vh(60px) 0 vh(60px) 0;
+  padding: vh(10px) vw(60px);
 }
 </style>

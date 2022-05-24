@@ -2,7 +2,7 @@
   <div class="header text-center">
     <div class="logo">
       <router-link to="/"
-        ><img src="@/assets/images/ssafy_logo.png" class="logoimg"
+        ><img src="@/assets/images/logo-gray-main.svg" class="logoimg"
       /></router-link>
     </div>
     <div class="catagory">
@@ -14,7 +14,7 @@
       <router-link to="/news">뉴스</router-link>
     </div>
     <div class="user" v-if="userInfo">
-      <router-link to="/">마이페이지</router-link>
+      <router-link to="/user">마이페이지</router-link>
       <button class="logout-btn" @click.prevent="onClickLogout">
         로그아웃
       </button>
@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss">
 .header {
-  height: 80px;
+  height: 78px;
   width: 100%;
   //   position: absolute;
   // position: absolute;
@@ -65,9 +65,9 @@ export default {
 }
 .logoimg {
   position: absolute;
-  height: 36px;
+  height: 30px;
   left: 130px;
-  top: 18px;
+  top: 21px;
 }
 .catagory {
   display: flex;
@@ -78,7 +78,7 @@ export default {
 
   position: absolute;
   left: 270px;
-  top: 26px;
+  top: 28px;
   font-size: 16px;
   a {
     color: $color-gray-7;
@@ -104,7 +104,7 @@ export default {
   a {
     color: $color-gray-6;
     font-family: "NotoSansMedium";
-    text-decoration: none;
+    // text-decoration: none;
   }
   a:hover {
     text-decoration: none;
