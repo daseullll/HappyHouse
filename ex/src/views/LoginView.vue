@@ -140,9 +140,9 @@ export default {
         this.$router.push({ name: "home" });
       }
     },
-    movePage() {
-      this.$router.push({ name: "signup" });
-    },
+    // movePage() {
+    //   this.$router.push({ name: "signup" });
+    // },
   },
 };
 </script>
