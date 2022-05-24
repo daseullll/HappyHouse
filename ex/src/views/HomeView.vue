@@ -72,6 +72,31 @@
         </div>
       </div>
     </section>
+    <!--section 2 end-->
+    <!--section 3 start-->
+    <section class="active page-container num3">
+      <div class="section-contents">
+        <div class="home-title ta-r">
+          <div class="sub-main fs-40 roBold">03</div>
+          <div class="mb-30">
+            <div class="title-main fs-48 notoBold">광주 4반</div>
+            <div class="title-main fs-48 notoBold mt--15">파이팅...</div>
+          </div>
+          <div class="sub-sub-main fs-20 notoMid">
+            공공데이터와 카카오맵 API를 활용한
+          </div>
+          <div class="sub-sub-main fs-20 notoMid">
+            아파트 실거래가 정보 및 학군 정보 제공 사이트
+          </div>
+          <button class="btn-num2 fs-20 notoBold" @click="moveJoin">
+            부동산 정보
+          </button>
+          <button class="btn-num2 fs-20 notoBold" @click="moveJoin">
+            학군 정보
+          </button>
+        </div>
+      </div>
+    </section>
     <!--section 3 end-->
   </div>
   <!-- <main-content :msg="msg"></main-content> -->
@@ -79,18 +104,20 @@
 
 <script>
 // import MainContent from "@/components/MainContent.vue";
-// export default {
-//   name: "HomeView",
-//   components: { MainContent },
-//   data() {
-//     return {
-//       msg: "해피하우스",
-//     };
-//   },
-// };
+export default {
+  // name: "HomeView",
+  // components: { MainContent },
+  data() {
+    return {};
+  },
+  methods: {
+    moveJoin() {
+      // 현재 route를 /list로 변경.
+      this.$router.push({ name: "join" });
+    },
+  },
+};
 // <!-- import $ from "jquery"; -->
-
-export default {};
 </script>
 
 <style lang="scss">
@@ -132,7 +159,7 @@ export default {};
 }
 
 .num2 {
-  background-color: blue;
+  background-color: skyblue;
   width: 100vw;
   height: 100vh;
   padding: vh(80px) 0 0 0;
@@ -145,7 +172,7 @@ export default {};
 }
 
 .num3 {
-  background-color: green;
+  background-color: yellow;
   width: 100vw;
   height: 100vh;
   padding: vh(80px) 0 0 0;
@@ -163,33 +190,33 @@ export default {};
 
 .btn-main {
   border-radius: 60px;
-  line-height: vh(40px);
+  line-height: vh(60px);
   border: none;
   align-content: center;
   color: $color-white;
   background-color: $color-primary;
   margin: vh(60px) 0;
-  padding: vh(20px) vw(80px);
+  padding: vh(20px) vw(60px);
 }
 .btn-num2 {
   border-radius: 30px;
-  line-height: vh(40px);
+  line-height: vh(60px);
   border: none;
   align-content: center;
   color: $color-white;
   background-color: $color-primary;
   margin: vh(60px) 0 vh(60px) vw(30px);
-  padding: vh(10px) vw(60px);
+  padding: vh(20px) vw(40px);
 }
 
 .btn-num3 {
   border-radius: 30px;
-  line-height: vh(40px);
+  line-height: vh(60px);
   border: none;
   align-content: center;
   color: $color-white;
   background-color: $color-primary;
   margin: vh(60px) 0 vh(60px) 0;
-  padding: vh(10px) vw(60px);
+  padding: vh(20px) vw(40px);
 }
 </style>

@@ -11,19 +11,19 @@
         </div>
         <div class="view">
           <label for="userid" class="mr-20 mt-20 notoReg fs-20">작성자 :</label>
-          <span class="fs-20 ml-10">{{ article.userid }}</span>
+          <span class="fs-20 ml-10 fs-18">{{ article.userid }}</span>
         </div>
       </div>
     </div>
     <div class="regist_form board-detail-box">
       <div class="view ta-r">
-        <label for="price" class="mr-20 fs-14">작성일 : </label>
-        <span class="fs-20 ml-10">{{ article.regtime }}</span>
+        <label for="price" class="mr-20 fs-18">작성일 : </label>
+        <span class="fs-20 ml-10 fs-18">{{ article.regtime }}</span>
       </div>
     </div>
     <!--text 시작-->
     <div class="line-line-gray mt-40 mb-40"></div>
-    <div class="view mr-30 ml-30" v-html="article.content"></div>
+    <div class="view mr-30 ml-30 fs-18" v-html="article.content"></div>
     <div class="line-line-gray mt-40 mb-40"></div>
     <!--text end-->
 
@@ -130,7 +130,7 @@ export default {
     height: 48px;
 
     background: $color-gray-9;
-    border-radius: 6px;
+    border-radius: 20px;
     border: none;
     color: $color-white;
     margin: 0 25px;
@@ -143,8 +143,8 @@ export default {
     width: 150px;
     height: 48px;
 
-    background: #ff6b6b;
-    border-radius: 6px;
+    background: $color-primary;
+    border-radius: 20px;
     border: none;
     color: $color-white;
     margin: 0 25px;

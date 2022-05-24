@@ -15,7 +15,9 @@
         <tbody>
           <tr class="tb-first-line tb-line-line">
             <td class="tb-category">
-              <label for="userid" class="fs-22 notoMid">작성자</label>
+              <label for="userid" class="fs-18 notoMid mr-30 ml-30"
+                >작성자</label
+              >
             </td>
             <td>
               <input
@@ -25,12 +27,15 @@
                 v-model="userid"
                 placeholder="회원이 아니신가요?"
                 ref="userid"
+                class="fs-16 ml-30"
               /><br />
             </td>
           </tr>
           <tr class="tb-line-line">
             <td class="tb-category">
-              <label for="subject" class="fs-22 notoMid">제목</label>
+              <label for="subject" class="fs-18 notoMid ml-30 mr-30"
+                >제목</label
+              >
             </td>
             <td>
               <input
@@ -40,12 +45,14 @@
                 v-model="subject"
                 placeholder="제목을 입력하세요"
                 ref="subject"
+                class="fs-16 ml-30"
               /><br />
             </td>
           </tr>
           <tr class="tb-last-line">
             <td class="tb-category">
-              <label for="content" class="fs-22 notoMid">내용</label><br />
+              <label for="content" class="fs-18 notoMid ml-30 mr-30">내용</label
+              ><br />
             </td>
             <td>
               <textarea
@@ -56,6 +63,7 @@
                 ref="content"
                 cols="110"
                 rows="15"
+                class="fs-16 ml-30 mt-20"
               ></textarea
               ><br />
             </td>
@@ -141,41 +149,45 @@ export default {
 
 <style lang="scss">
 .write-box {
-  margin-top: 75px;
+  margin-top: vh(75px);
 }
 
 .write-btn-form {
   // margin-top: 70px;
-  margin: 70px 20px 0px 20px;
+  margin: vh(70px) vw(20px) 0px vw(20px);
   align-content: center;
   display: flex;
 
   .board-write-btn-cancle {
     position: relative;
-    width: 150px;
-    height: 48px;
+    width: vw(150px);
+    height: vh(48px);
 
     background: $color-gray-9;
-    border-radius: 6px;
+    border-radius: 20px;
     border: none;
     color: $color-white;
-    margin: 0 25px;
+    margin: 0 vw(25px);
   }
   .board-write-btn-confirm {
     position: relative;
-    width: 150px;
-    height: 48px;
+    width: vw(150px);
+    height: vh(48px);
 
-    background: #ff6b6b;
-    border-radius: 6px;
+    background: $color-primary;
+    border-radius: 20px;
     border: none;
     color: $color-white;
-    margin: 0 25px;
+    margin: 0 vw(25px);
   }
   justify-content: center;
 }
 
 #content {
   border: none;
+}
+
+label {
+  margin: vh(15px) 0 vh(15px) 0;
 }
 </style>

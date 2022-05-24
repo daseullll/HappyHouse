@@ -15,6 +15,7 @@
       <div class="view">{{ article.userid }}</div>
       <label for="price">작성일</label>
       <div class="view">{{ article.regtime }}</div>
+
       <label for="content">내용</label>
       <div class="view" v-html="article.content"></div>
       <div style="padding-top: 15px">

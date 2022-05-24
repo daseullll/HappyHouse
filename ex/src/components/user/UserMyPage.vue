@@ -1,56 +1,32 @@
 <template>
   <div class="regist">
-    <div class="title-container">
-      <span
-        ><img class="titleIcon" src="@/assets/images/emoji/BlossomEmoji.png" />
-      </span>
-      <span class="underline title fs-48 notoBold">커뮤니티</span>
-    </div>
-    <div class="sub-title fs-24 mt-15 notoMid">
-      우리 동네 이웃들의 소근소근 이야기
-      <button class="board-write-btn fs-16 notoMid" @click="moveWrite">
-        글 작성
+    <div class="title-container"></div>
+
+    <!-- 버튼 시작-->
+    <!-- <div class="mypage-btn-form">
+      <router-link
+        :to="{
+          name: 'user',
+          params: { articleno: article.articleno },
+        }"
+        class="mypage-btn-delete fs-18 notoMid"
+      >
+        <span>탈퇴</span>
+      </router-link>
+      <button class="mypage-btn-modify fs-18 notoMid" @click="moveModify">
+        수정
       </button>
-    </div>
-    <div class="board-box" v-if="articles.length">
-      <table class="board-table" id="book-list">
-        <colgroup>
-          <col style="width: 10%" />
-          <col style="width: 40%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-        </colgroup>
-        <thead>
-          <tr class="fs-18 notoMid tb-first-line">
-            <th>글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-          </tr>
-        </thead>
-        <tbody>
-          <board-list-item
-            v-for="article in articles"
-            :key="article.articleno"
-            :article="article"
-          ></board-list-item>
-        </tbody>
-      </table>
-    </div>
-    <div v-else class="text-center board-box-empty">
-      <p>게시글이 없습니다ㅠ^ㅠ</p>
-      <p style="margin-top: -8px">첫 게시글을 작성해 보세요:)</p>
-    </div>
+    </div> -->
+    <!--버튼 끝 -->
   </div>
 </template>
 
 <script>
 import http from "@/api/http.js";
-import BoardListItem from "@/components/board/BoardListItem.vue";
 
 export default {
   name: "BoardList",
-  components: { BoardListItem },
+  components: {},
   data() {
     return {
       articles: [],
@@ -62,8 +38,8 @@ export default {
     });
   },
   methods: {
-    moveWrite() {
-      this.$router.push({ name: "boardWrite" });
+    moveModify() {
+      this.$router.push({ name: "Modify" });
     },
   },
 };
@@ -92,11 +68,8 @@ export default {
   }
 }
 
-.board-box-empty {
-  padding-top: 150px;
-}
-
-.board-write-btn {
+.mypage-btn-delete,
+.mypage-btn-delete {
   margin-left: 0px;
   width: 100px;
   height: 48px;
