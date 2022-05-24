@@ -10,7 +10,6 @@
       관심 지역을 선택해보세요! 아파트의 실거래가를 조회할 수 있습니다 :)
     </div>
 
-    <!--select 시작-->
     <section>
       <div class="apt_page">
         <div class="apt_title">
@@ -56,105 +55,92 @@
 
 <script>
 export default {
-  name: "HouseView",
-  components: {},
+  name: "KakaoMap",
+  data() {
+    return {
+      markers: [],
+      infowindow: null,
+    };
+  },
+  mounted() {
+    if (window.kakao && window.kakao.maps) {
+      this.initMap();
+    } else {
+      const script = document.createElement("script");
+      /* global kakao */
+      script.onload = () => kakao.maps.load(this.initMap);
+      script.src =
+        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=08985b67250897bfb740eaa75f2f566f";
+      document.head.appendChild(script);
+    }
+  },
+  methods: {
+    initMap() {
+      const container = document.getElementById("map");
+      const options = {
+        center: new kakao.maps.LatLng(34.9406968, 127.6958882),
+        level: 5,
+      };
+      this.map = new kakao.maps.Map(container, options);
+    },
+    changeSize(size) {
+      const container = document.getElementById("map");
+      container.style.width = `${size}px`;
+      container.style.height = `${size}px`;
+      this.map.relayout();
+    },
+    displayMarker(markerPositions) {
+      if (this.markers.length > 0) {
+        this.markers.forEach((marker) => marker.setMap(null));
+      }
+
+      const positions = markerPositions.map(
+        (position) => new kakao.maps.LatLng(...position)
+      );
+
+      if (positions.length > 0) {
+        this.markers = positions.map(
+          (position) =>
+            new kakao.maps.Marker({
+              map: this.map,
+              position,
+            })
+        );
+
+        const bounds = positions.reduce(
+          (bounds, latlng) => bounds.extend(latlng),
+          new kakao.maps.LatLngBounds()
+        );
+
+        this.map.setBounds(bounds);
+      }
+    },
+    displayInfoWindow() {
+      if (this.infowindow && this.infowindow.getMap()) {
+        this.map.setCenter(this.infowindow.getPosition());
+        return;
+      }
+
+      var iwContent = '<div style="padding:5px;">Hello World!</div>',
+        iwPosition = new kakao.maps.LatLng(34.9406968, 127.6958882),
+        iwRemoveable = true;
+
+      this.infowindow = new kakao.maps.InfoWindow({
+        map: this.map,
+        position: iwPosition,
+        content: iwContent,
+        removable: iwRemoveable,
+      });
+
+      this.map.setCenter(iwPosition);
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-.apt_show {
-  display: block;
-  /* width: 800px; */
-  margin: 0 auto;
-  margin-bottom: 0.6em;
-  text-align: center;
-  /* align-content: center; */
-}
-.apt_title {
-  text-align: center;
-  padding-bottom: 80px;
-  color: $color-dark;
-}
-select {
-  /* margin: 0 auto; */
-  width: 150px;
-  height: 30px;
-  margin-right: 0px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  // padding: 10px;
-}
-#price {
-  text-align: center;
-  margin: 0 auto;
-}
-.tr_size th {
-  height: 40px;
-  color: black;
-  border-bottom: 2px solid black;
-  padding: 20px;
-  font-size: vw(20px);
-  vertical-align: top;
-  background-color: white;
-}
-#first_th {
-  width: 230px;
-}
-.price_th {
-  width: 100px;
-}
-#last_th {
-  width: 150px;
-}
-
-#aptinfo > tr > td {
-  height: 30px;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: white;
-  color: black;
-}
+<style scoped>
 #map {
-  height: 800px;
-  width: 1200px;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-#detail-link-title:hover {
-  color: #ffb62c;
-}
-
-#detail-link-marker:hover {
-  color: #ffb62c;
-}
-
-#detail_btn {
-  /* height : 30px; */
-  border-radius: 5px;
-  text-align: center;
-  font-size: 14px;
-  padding: 10px 10px;
-  margin-top: 30px;
-  width: 60px;
-  /* display : inline; */
-  background-color: grey;
-  color: white;
-  border: none;
-}
-
-#detail_btn:hover {
-  background-color: $color-primary;
+  width: 800px;
+  height: 500px;
 }
 </style>

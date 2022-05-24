@@ -44,6 +44,7 @@ export default {
       this.SET_IS_LOGIN(false);
       this.SET_USER_INFO(null);
       sessionStorage.removeItem("access-token");
+      alert("로그아웃 되었습니다.");
       if (this.$route.path != "/") this.$router.push({ name: "home" });
     },
   },
