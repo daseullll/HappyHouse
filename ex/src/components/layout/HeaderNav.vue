@@ -15,7 +15,9 @@
     </div>
     <div class="user" v-if="userInfo">
       <router-link to="/">마이페이지</router-link>
-      <button @click.prevent="onClickLogout">로그아웃</button>
+      <button class="logout-btn" @click.prevent="onClickLogout">
+        로그아웃
+      </button>
     </div>
     <div class="user" v-else>
       <router-link to="/join">회원가입</router-link>
@@ -85,13 +87,15 @@ export default {
 }
 .user {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
-  align-items: flex-end;
+
   padding: 0px;
-  gap: 24px;
+  gap: 40px;
 
   position: absolute;
-  width: 128px;
+  // width: vw(128px);
   height: 23px;
   // left: calc(50% - 128px / 2 + 521px);
   right: 120px;
@@ -99,6 +103,21 @@ export default {
   font-size: 16px;
   a {
     color: $color-gray-6;
+    font-family: "NotoSansMedium";
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $color-gray-6;
+  }
+
+  .logout-btn {
+    border: none;
+    background-color: #ffffff;
+    color: $color-gray-6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: "NotoSansMedium";
   }
 }
