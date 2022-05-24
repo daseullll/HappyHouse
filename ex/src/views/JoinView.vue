@@ -223,7 +223,7 @@ export default {
 </script>
 <style lang="scss">
 .login {
-  background-color: $color-gray-5;
+  // background-color: $color-gray-5;
   color: $color-dark;
   padding: 40px 40px;
   .login-img {

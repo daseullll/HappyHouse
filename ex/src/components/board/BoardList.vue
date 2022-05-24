@@ -13,7 +13,13 @@
       </button>
     </div>
     <div class="board-box" v-if="articles.length">
-      <table class="board-table" id="book-list">
+      <table
+        class="board-table"
+        :articles="articles"
+        id="board-list"
+        :per-page="perPage"
+        :current-page="currentPage"
+      >
         <colgroup>
           <col style="width: 10%" />
           <col style="width: 40%" />
@@ -41,6 +47,14 @@
       <p>게시글이 없습니다ㅠ^ㅠ</p>
       <p style="margin-top: -8px">첫 게시글을 작성해 보세요:)</p>
     </div>
+    <!--페이지네이션-->
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="board-list"
+      align="center"
+    ></b-pagination>
   </div>
 </template>
 
@@ -53,6 +67,8 @@ export default {
   components: { BoardListItem },
   data() {
     return {
+      currentPage: 1,
+      perPage: 10,
       articles: [],
     };
   },
@@ -60,6 +76,11 @@ export default {
     http.get("/board").then(({ data }) => {
       this.articles = data;
     });
+  },
+  computed: {
+    rows() {
+      return this.articles.length;
+    },
   },
   methods: {
     moveWrite() {
@@ -107,5 +128,22 @@ export default {
   color: $color-white;
   margin: 0 25px;
   float: right;
+}
+.pagination {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  // display: flex;
+  // align-content: center;
+  // justify-content: center;
+  // color: $color-primary;
+}
+
+.page-item.active .page-link {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.page-link {
+  color: $color-gray-7;
 }
 </style>

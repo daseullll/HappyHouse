@@ -68,13 +68,14 @@ const routes = [
         name: "MyPage",
         component: UserMyPage,
       },
-      // {
-      //   path: "modify",
-      //   name: "Modify",
-      //   component: () => import("@/components/user/UserModify.vue"),
-      // },
+      {
+        path: "modify",
+        name: "Modify",
+        component: () => import("@/components/user/UserModify.vue"),
+      },
     ],
   },
+
   {
     // 뉴스
     path: "/news",

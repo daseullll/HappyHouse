@@ -32,4 +32,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+a,
+td,
+tr {
+  font-size: vw(16px);
+}
+</style>

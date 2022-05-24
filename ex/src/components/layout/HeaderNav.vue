@@ -8,14 +8,14 @@
     <div class="catagory">
       <router-link to="/">홈</router-link>
       <router-link to="/house">주택</router-link>
-      <router-link to="/house">학군</router-link>
+      <router-link to="/school">학군</router-link>
       <!-- <router-link to="/notice">커뮤니티</router-link> -->
       <router-link to="/board">커뮤니티</router-link>
       <router-link to="/news">뉴스</router-link>
     </div>
     <div class="user" v-if="userInfo">
       <router-link to="/user">마이페이지</router-link>
-      <button class="logout-btn" @click.prevent="onClickLogout">
+      <button class="logout-btn fs-16" @click.prevent="onClickLogout">
         로그아웃
       </button>
     </div>
