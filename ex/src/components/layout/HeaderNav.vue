@@ -13,7 +13,11 @@
       <router-link to="/board">커뮤니티</router-link>
       <router-link to="/news">뉴스</router-link>
     </div>
-    <div class="user">
+    <div class="user" v-if="userInfo">
+      <router-link to="/">마이페이지</router-link>
+      <button @click.prevent="onClickLogout">로그아웃</button>
+    </div>
+    <div class="user" v-else>
       <router-link to="/join">회원가입</router-link>
       <router-link to="/login">로그인</router-link>
     </div>
@@ -21,10 +25,26 @@
 </template>
 
 <script>
-// import "./HeaderNav.scss";
+import { mapState, mapMutations } from "vuex";
+// import ms from "@/store/modules/memberStore";
+
+const memberStore = "memberStore";
 
 export default {
-  name: "HeaderNav",
+  name: "HeaderNa",
+  computed: {
+    ...mapState(memberStore, ["isLogin", "userInfo"]),
+  },
+  methods: {
+    ...mapMutations(memberStore, ["SET_IS_LOGIN", "SET_USER_INFO"]),
+    onClickLogout() {
+      // console.log("memberStore : ", ms);
+      this.SET_IS_LOGIN(false);
+      this.SET_USER_INFO(null);
+      sessionStorage.removeItem("access-token");
+      if (this.$route.path != "/") this.$router.push({ name: "home" });
+    },
+  },
 };
 </script>
 
