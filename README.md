@@ -1,7 +1,7 @@
 # 💛🏡HappyHouse🏡💛
 
 <div align="center">   
-    <img src="" width="280px"/>
+    <img src ="https://user-images.githubusercontent.com/72871348/169956481-566cb41f-e034-4348-b8c5-6b361f021c67.svg" width=300px>
     <h3> 원하는 주택 정보 제공(수정하기)🏡</h3>
     <br>
     <p align="center">
