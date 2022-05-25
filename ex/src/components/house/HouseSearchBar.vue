@@ -1,34 +1,39 @@
 <template>
   <div class="house-nav-bar">
-    <b-form-select
-      name="sido"
-      id="sido"
-      class="ml-10"
-      v-model="sidoCode"
-      :options="sidos"
-      @change="gugunList"
-    ></b-form-select>
-
-    <b-form-select
-      name="gugun"
-      id="gugun"
-      class="ml-10"
-      v-model="gugunCode"
-      :options="guguns"
-      @change="dongList"
-    >
-      <!-- <option value="">구/군선택</option> -->
-    </b-form-select>
-    <b-form-select
-      name="dong"
-      id="dong"
-      class="ml-10"
-      v-model="dongCode"
-      :options="dongs"
-      @change="searchApt"
-    >
-      <!-- <option value="">동 선택</option> -->
-    </b-form-select>
+    <b-row class="mt-4 mb-4 text-center">
+      <b-col class="sm-1">
+        <b-form-select
+          name="sido"
+          id="sido"
+          class="ml-10"
+          v-model="sidoCode"
+          :options="sidos"
+          @change="gugunList"
+        ></b-form-select>
+      </b-col>
+      <b-col class="sm-1">
+        <b-form-select
+          name="gugun"
+          id="gugun"
+          class="ml-10"
+          v-model="gugunCode"
+          :options="guguns"
+          @change="dongList"
+        >
+        </b-form-select>
+      </b-col>
+      <b-col class="sm-1">
+        <b-form-select
+          name="dong"
+          id="dong"
+          class="ml-10"
+          v-model="dongCode"
+          :options="dongs"
+          @change="searchApt"
+        >
+        </b-form-select>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -120,14 +125,6 @@ export default {
       this.infoWindow = new kakao.maps.InfoWindow({ zIndex: 1 });
       this.geocoder = new kakao.maps.services.Geocoder();
     },
-
-    // addScript() {
-    //   const script = document.createElement("script");
-    //   script.onload = () => kakao.maps.load(this.initMap);
-    //   script.src =
-    //     "http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=08985b67250897bfb740eaa75f2f566f&libraries=services,clusterer,drawing";
-    //   document.head.appendChild(script);
-    // },
 
     changeSize(size) {
       const container = document.getElementById("map");
@@ -231,7 +228,7 @@ export default {
       el.className = "item";
       return el;
     },
-    displayInfoWindow(marker, title, place) {
+    displayInfowindow(marker, title, place) {
       //   console.log(title);
       var content = `
           <div class="mapoverlaybox">
