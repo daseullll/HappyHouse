@@ -1,33 +1,20 @@
 <template>
-  <tr>
-    <td>{{ article.articleno }}</td>
-    <td>
-      <router-link
-        :to="{
-          name: 'boardDetail',
-          params: { articleno: article.articleno },
-        }"
-        >{{ article.subject }}</router-link
-      >
-    </td>
-    <td>{{ article.userid }}</td>
-    <td>{{ article.regtime | formatDate }}</td>
-  </tr>
+  <b-tr>
+    <a :href="'https://land.naver.com/' + url">
+      <b-td> <b-img-lazy :src="img" /></b-td>
+      <b-td> {{ title }} </b-td>
+    </a>
+  </b-tr>
 </template>
 
 <script>
-// import moment from "moment";
-
+import { url } from "vuelidate/lib/validators";
 export default {
-  name: "BoardListItem",
+  name: "NewsListItem",
   props: {
-    article: Object, // 넘어온 객체 받기
-  },
-  filters: {
-    formatDate(regtime) {
-      return regtime;
-      // return moment(new Date(regtime)).format("YYYY.MM.DD");
-    },
+    url: url,
+    img: url,
+    title: String,
   },
 };
 </script>

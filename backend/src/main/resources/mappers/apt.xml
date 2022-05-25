@@ -36,4 +36,19 @@
 		order by aptName
 	</select>
 	
+	<select id="getAptListForAptCode" parameterType="string" resultType="houseDealDto">
+		select i.aptcode, i.aptname, i.buildyear, i.dongcode, i.dongname, i.jibun, si.sidoname, gu.gugunname, d.dealyear, d.dealmonth, d.dealday, d.dealamount
+		from houseinfo i, housedeal d, sidocode si, guguncode gu
+		where i.aptcode = #{aptCode} and i.aptcode = d.aptcode and left(i.dongcode,2) = left(si.sidocode,2) and left(i.dongcode,5) = left(gu.guguncode,5)
+		limit 30
+	</select>
+	
+	<select id="getAptListForAptName" parameterType="string" resultType="houseInfoDto">
+		select distinct i.aptcode, i.aptname, i.buildyear, i.dongcode, i.dongname, i.jibun, i.lat, i.lng, si.sidoname, gu.gugunname, 
+			(select dealAmount from housedeal where aptCode = i.aptCode and no = (select max(no) from housedeal where aptCode = i.aptCode)) recentPrice
+		from houseinfo i, housedeal d, sidocode si, guguncode gu
+		where i.aptName like CONCAT('%',#{aptName},'%') and i.aptcode = d.aptcode and left(i.dongcode,2) = left(si.sidocode,2) and left(i.dongcode,5) = left(gu.guguncode,5)
+		limit 30
+	</select>
+	
 </mapper>

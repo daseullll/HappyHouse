@@ -1,6 +1,8 @@
 package com.ssafy.vue.controller;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,13 +10,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.*;
-import java.text.*;
+import com.ssafy.vue.dto.NewsDto;
 
 @Controller
 @RequestMapping("/news")
@@ -23,46 +25,29 @@ public class NewsController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	public static HashMap<String, String> map;
-	
-	@RequestMapping(value = "crawling", method = RequestMethod.GET)
-	public String startCrawl(Model model) throws IOException{
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
-		Date currentTime = new Date();
+
+	@GetMapping("/crawl")
+	public ResponseEntity<List<NewsDto>> crawling() throws Exception {
+		String url = "https://land.naver.com/news/headline.naver";
 		
-		String dTime = formatter.format(currentTime);
-		String e_date = dTime;
+		Document doc = Jsoup.connect(url).get();
+		List<NewsDto> list = new ArrayList<>();
 		
-		currentTime.setDate(currentTime.getDate() -1);
-		String s_date = formatter.format(currentTime);
-		
-		String query = "성북구";
-		String s_from = s_date.replace(".", "");
-		String e_to = e_date.replace(".", "");
-		int page = 1;
-		ArrayList<String> al1 = new ArrayList<>();
-		ArrayList<String> al2 = new ArrayList<>();
-		
-		while(page < 20) {
-			String address = "https://search.naver.com/search.naver?where=news&query=" + query + "&sort=1&ds=" + s_date +
-					"&de=" + e_date + "&nso=so%3Ar%2Cp%3Afrom" + s_from + "to" + e_to + "%2Ca%3A&start="
-					+ Integer.toString(page);
-			Document rawData = Jsoup.connect(address).timeout(5000).get();
-			
-			Elements blogOption = rawData.select("dl dt");
-			String realURL = "";
-			String realTITLE = "";
-			
-			for(Element option : blogOption) {
-				realURL = option.select("a").attr("href");
-				realTITLE = option.select("a").attr("title");
-				al1.add(realURL);
-				al2.add(realTITLE);
+		Element newslist = doc.select(".section_headline .headline_list").get(0);
+		Elements newsElements = newslist.select("li");
+		int cnt=1;
+		for(Element e : newsElements){
+			if(cnt%11!=0 && cnt<=10) {
+				NewsDto news = new NewsDto();
+				news.setImg(e.getElementsByAttribute("src").attr("src"));
+//				news.setTitle(e.getElementsByAttribute("alt").attr("alt"));
+				news.setTitle(e.select("a").text());
+				
+				news.setUrl(e.getElementsByAttribute("href").attr("href"));
+				list.add(news);
 			}
-			page+=10;
+			cnt++;
 		}
-		model.addAttribute("urls",al1);
-		model.addAttribute("titles",al1);
-		
-		return "news/news";
+		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 }
