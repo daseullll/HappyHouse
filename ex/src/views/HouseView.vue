@@ -24,13 +24,35 @@
           <div id="blank_1"></div>
         </div>
         <div class="apt_show">
-          <select name="sido" id="sido" class="ml-10"></select>
-          <select name="gugun" id="gugun" class="ml-10">
-            <option value="">구/군선택</option>
-          </select>
-          <select name="dong" id="dong" class="ml-10">
-            <option value="">동 선택</option>
-          </select>
+          <b-form-select
+            name="sido"
+            id="sido"
+            class="ml-10"
+            v-model="sidoCode"
+            :options="sidos"
+            @change="gugunList"
+          ></b-form-select>
+
+          <b-form-select
+            name="gugun"
+            id="gugun"
+            class="ml-10"
+            v-model="gugunCode"
+            :options="guguns"
+            @change="dongList"
+          >
+            <!-- <option value="">구/군선택</option> -->
+          </b-form-select>
+          <b-form-select
+            name="dong"
+            id="dong"
+            class="ml-10"
+            v-model="dongCode"
+            :options="dongs"
+            @change="searchApt"
+          >
+            <!-- <option value="">동 선택</option> -->
+          </b-form-select>
         </div>
 
         <div class="apt_show mt-20">
@@ -54,12 +76,27 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from "vuex";
+const houseStore = "houseStore";
+
 export default {
   name: "KakaoMap",
   data() {
     return {
       markers: [],
       infowindow: null,
+
+      sidoCode: null,
+      gugunCode: null,
+      dongCode: null,
+
+      map: null,
+      ps: null,
+      geocoder: null,
+      infoWindow: null,
+
+      customOverlays: [],
+      overlayIdx: 0,
     };
   },
   mounted() {
@@ -74,7 +111,46 @@ export default {
       document.head.appendChild(script);
     }
   },
+  computed: {
+    ...mapState(houseStore, ["sidos", "guguns", "dongs", "houses"]),
+  },
+  created() {
+    this.CLEAR_SIDO_LIST();
+    this.getSido();
+    console.log(this.sidoCode);
+  },
+
   methods: {
+    ...mapActions(houseStore, [
+      "getSido",
+      "getGugun",
+      "getDong",
+      "getHouseList",
+    ]),
+    ...mapMutations(houseStore, [
+      "CLEAR_SIDO_LIST",
+      "CLEAR_GUGUN_LIST",
+      "CLEAR_DONG_LIST",
+    ]),
+    gugunList() {
+      console.log("gugunList - " + this.sidoCode);
+      this.CLEAR_GUGUN_LIST();
+      this.gugunCode = null;
+      if (this.sidoCode) this.getGugun(this.sidoCode);
+    },
+    dongList() {
+      console.log("dongList - " + this.gugunCode);
+      this.CLEAR_DONG_LIST();
+      this.dongCode = null;
+      if (this.gugunCode) this.getDong(this.gugunCode);
+    },
+    async searchApt() {
+      if (this.dongCode) {
+        await this.getHouseList(this.dongCode);
+        this.displayMarkers(this.houses);
+      }
+    },
+
     initMap() {
       const container = document.getElementById("map");
       const options = {
