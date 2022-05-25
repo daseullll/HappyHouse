@@ -15,25 +15,19 @@
         <tbody>
           <tr class="tb-first-line tb-line-line">
             <td class="tb-category">
-              <label for="userid" class="fs-18 notoMid mr-30 ml-30"
+              <label for="userid" class="fs-20 notoMid mr-30 ml-30"
                 >작성자</label
               >
             </td>
             <td>
-              <input
-                type="text"
-                id="userid"
-                name="userid"
-                v-model="userid"
-                placeholder="회원이 아니신가요?"
-                ref="userid"
-                class="fs-16 ml-30"
-              /><br />
+              <div class="fs-18 ml-30">
+                {{ userInfo.userid }}
+              </div>
             </td>
           </tr>
           <tr class="tb-line-line">
             <td class="tb-category">
-              <label for="subject" class="fs-18 notoMid ml-30 mr-30"
+              <label for="subject" class="fs-20 notoMid ml-30 mr-30"
                 >제목</label
               >
             </td>
@@ -45,13 +39,13 @@
                 v-model="subject"
                 placeholder="제목을 입력하세요"
                 ref="subject"
-                class="fs-16 ml-30"
+                class="fs-18 ml-30"
               /><br />
             </td>
           </tr>
           <tr class="tb-last-line">
             <td class="tb-category">
-              <label for="content" class="fs-18 notoMid ml-30 mr-30">내용</label
+              <label for="content" class="fs-20 notoMid ml-30 mr-30">내용</label
               ><br />
             </td>
             <td>
@@ -63,7 +57,7 @@
                 ref="content"
                 cols="110"
                 rows="15"
-                class="fs-16 ml-30 mt-20"
+                class="fs-18 ml-30 mt-20"
               ></textarea
               ><br />
             </td>
@@ -87,15 +81,20 @@
 
 <script>
 import http from "@/api/http.js";
+import { mapState } from "vuex";
+const memberStore = "memberStore";
 
 export default {
   name: "BoardWrite",
   data() {
     return {
-      userid: "",
+      // userid: "",
       subject: "",
       content: "",
     };
+  },
+  computed: {
+    ...mapState(memberStore, ["userInfo"]),
   },
   methods: {
     // 입력값 체크하기 - 체크가 성공하면 registBoard 호출
@@ -103,10 +102,10 @@ export default {
       // 사용자 입력값 체크하기
       let err = true;
       let msg = "";
-      !this.userid &&
-        ((msg = "작성자 입력해주세요"),
-        (err = false),
-        this.$refs.userid.focus());
+      // !this.userid &&
+      //   ((msg = "작성자 입력해주세요"),
+      //   (err = false),
+      //   this.$refs.userid.focus());
       err &&
         !this.subject &&
         ((msg = "제목 입력해주세요"),
@@ -126,7 +125,7 @@ export default {
     registBoard() {
       http
         .post("/board", {
-          userid: this.userid,
+          // userid: "{{userInfo.userid}}",
           subject: this.subject,
           content: this.content,
         })
@@ -189,5 +188,9 @@ export default {
 
 label {
   margin: vh(15px) 0 vh(15px) 0;
+}
+input {
+  width: 100%;
+  margin-right: 20px;
 }
 </style>

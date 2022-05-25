@@ -21,16 +21,16 @@
         :current-page="currentPage"
       >
         <colgroup>
-          <col style="width: 10%" />
           <col style="width: 40%" />
           <col style="width: 25%" />
+          <col style="width: 10%" />
           <col style="width: 25%" />
         </colgroup>
         <thead>
           <tr class="fs-18 notoMid tb-first-line">
-            <th>글번호</th>
             <th>제목</th>
             <th>작성자</th>
+            <th>좋아요 수</th>
             <th>작성일</th>
           </tr>
         </thead>

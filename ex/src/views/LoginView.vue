@@ -192,9 +192,9 @@ export default {
     color: $color-white;
   }
   .btn-google-login {
-    background-color: $color-white;
+    background-color: $color-dark;
     color: $color-dark !important;
-    border: $color-gray-8 !important;
+    border: $color-gray-10 !important;
   }
 
   .btn-user {

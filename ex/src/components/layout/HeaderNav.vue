@@ -85,6 +85,10 @@ export default {
     color: $color-gray-7;
     font-family: "NotoSansMedium";
   }
+  a:hover {
+    text-decoration: none;
+    color: $color-primary;
+  }
 }
 .user {
   display: flex;
@@ -109,7 +113,7 @@ export default {
   }
   a:hover {
     text-decoration: none;
-    color: $color-gray-6;
+    color: $color-primary;
   }
 
   .logout-btn {

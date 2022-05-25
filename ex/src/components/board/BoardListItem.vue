@@ -1,6 +1,5 @@
 <template>
   <tr>
-    <td>{{ article.articleno }}</td>
     <td>
       <router-link
         :to="{
@@ -11,6 +10,8 @@
       >
     </td>
     <td>{{ article.userid }}</td>
+    <td>{{ article.articleno }}</td>
+    <!--좋아요 수로 교체해야함-->
     <td>{{ article.regtime | formatDate }}</td>
   </tr>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <div class="regist_form mypage-box">
     <div class="mypage notoMid">
+      <div class="empty mt-40"></div>
       <div class="mypage-name fs-32 mt-40 mb-30 notoBold">
         {{ userInfo.username }}님...
       </div>
