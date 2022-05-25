@@ -1,13 +1,52 @@
 <template>
-  <div class="regist">
-    <!--news 시작-->
-  </div>
+  <b-col>
+    <b-table-simple hover responsive>
+      <tbody>
+        <news-list-item
+          v-for="article in articles"
+          :key="article.title"
+          v-bind="article"
+        /></tbody
+    ></b-table-simple>
+  </b-col>
 </template>
 
-<!-- <script>
+<script>
 import http from "@/api/http.js";
-import NewsListItem from "@/components/news/NewsListItem.vue";
-</script> -->
+import NewsListItem from "./NewsListItem.vue";
+
+export default {
+  name: "NewsList",
+  components: {
+    NewsListItem,
+  },
+  data() {
+    return {
+      articles: [],
+    };
+  },
+
+  created() {
+    http.get("/news/crawl").then(({ data }) => {
+      this.articles = data;
+    });
+  },
+
+  // created(){
+  //   listNews(
+  //     (response) => {
+  //       this.articles = response.data;
+  //     },
+  //   );
+  // },
+
+  computed: {
+    rows() {
+      return this.articles.length;
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 .board-box-empty {

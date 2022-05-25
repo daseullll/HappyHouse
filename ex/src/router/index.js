@@ -13,7 +13,6 @@ import UserMyPage from "@/components/user/UserMyPage.vue";
 
 import NewsView from "../views/NewsView.vue";
 import NewsList from "@/components/news/NewsList.vue";
-import NewsDetail from "@/components/news/NewsDetail.vue";
 
 import SchoolView from "@/views/SchoolView.vue";
 
@@ -88,13 +87,6 @@ const routes = [
         name: "newsList",
         component: NewsList,
         // component: () => import("@/components/news/NoticeList.vue"),
-      },
-
-      {
-        path: "detail/:articleno",
-        name: "newsDetail",
-        component: NewsDetail,
-        // component: () => import("@/components/news/NewsDetail.vue"),
       },
     ],
   },

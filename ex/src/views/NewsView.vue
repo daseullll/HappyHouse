@@ -19,6 +19,16 @@
         학군 소식
       </button>
     </div>
-    <router-view></router-view>
+    <news-list></news-list>
   </div>
 </template>
+
+<script>
+import NewsList from "@/components/news/NewsList.vue";
+
+export default {
+  components: {
+    NewsList,
+  },
+};
+</script>
