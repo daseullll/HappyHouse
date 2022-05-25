@@ -147,7 +147,7 @@ export default {
       return this.userpwd.length >= 4;
     },
     nameState() {
-      return this.username.length >= 4;
+      return this.username.length >= 2;
     },
     emailState() {
       return this.email.length >= 4;

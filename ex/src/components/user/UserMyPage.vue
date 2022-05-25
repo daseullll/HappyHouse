@@ -29,10 +29,7 @@
         <button class="mypage-btn-modify fs-18 notoMid" @click="moveModify">
           수정
         </button>
-        <button
-          class="mypage-btn-withdraw fs-18 notoMid"
-          @click="checkWithdraw"
-        >
+        <button class="mypage-btn-withdraw fs-18 notoMid" @click="moveWithdraw">
           탈퇴
         </button>
       </div>
@@ -56,7 +53,11 @@ export default {
   methods: {
     moveModify() {
       // 현재 route를 /list로 변경.
-      this.$router.push({ name: "modify" });
+      this.$router.push({ name: "Modify" });
+    },
+    moveWithdraw() {
+      // 현재 route를 /list로 변경.
+      this.$router.push({ name: "Withdraw" });
     },
   },
 };

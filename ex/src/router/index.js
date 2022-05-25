@@ -72,6 +72,11 @@ const routes = [
         name: "Modify",
         component: () => import("@/components/user/UserModify.vue"),
       },
+      {
+        path: "withdraw",
+        name: "Withdraw",
+        component: () => import("@/components/user/UserWithdraw.vue"),
+      },
     ],
   },
 
