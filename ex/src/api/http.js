@@ -18,4 +18,15 @@ function apiInstance() {
   return instance;
 }
 
-export { apiInstance };
+function houseInstance() {
+  const instance = axios.create({
+    baseURL:
+      "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev",
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  return instance;
+}
+
+export { apiInstance, houseInstance };

@@ -13,34 +13,21 @@
     <section>
       <div class="apt_page">
         <div class="apt_title">
-          <!-- <h3 class="apt_title_detail hidden">아파트 조회 상세</h3>
-          <button
-            class="apt_title_detail hidden"
-            id="detail_btn"
-            onclick="location.reload()"
-          >
-            리셋
-          </button> -->
           <div id="blank_1"></div>
         </div>
         <div class="apt_show">
           <house-search-bar></house-search-bar>
         </div>
-
-        <!-- <div class="apt_show mt-20">
-          <table id="price">
-            <tr class="tr_size">
-              <th id="first_th">아파트</th>
-              <th class="price_th">금액</th>
-              <th class="price_th">동</th>
-              <th class="price_th">년</th>
-              <th class="price_th">월</th>
-              <th class="price_th">일</th>
-              <th id="last_th">전용면적</th>
-            </tr>
-            <tbody id="aptinfo"></tbody>
-          </table>
-        </div> -->
+        <b-row>
+          <b-col cols="6" align="left">
+            <house-list />
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <house-info-modal />
+          </b-col>
+        </b-row>
       </div>
     </section>
     <div class="apt_show" id="map"></div>
@@ -50,11 +37,16 @@
 <script>
 // import { mapState, mapActions, mapMutations } from "vuex";
 import HouseSearchBar from "@/components/house/HouseSearchBar.vue";
+import HouseList from "@/components/house/HouseList.vue";
+import HouseInfoModal from "@/components/house/HouseInfoModal.vue";
+
 // const houseStore = "houseStore";
 
 export default {
   components: {
     HouseSearchBar,
+    HouseList,
+    HouseInfoModal,
   },
 };
 </script>
