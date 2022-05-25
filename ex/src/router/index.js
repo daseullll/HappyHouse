@@ -12,7 +12,7 @@ import UserMyPage from "@/components/user/UserMyPage.vue";
 // // import UserModify from "@/components/user/UserModify.vue";
 
 import NewsView from "../views/NewsView.vue";
-import NewsList from "@/components/news/NewsList.vue";
+import HouseNewsList from "@/components/news/HouseNewsList.vue";
 
 import SchoolView from "@/views/SchoolView.vue";
 
@@ -89,8 +89,8 @@ const routes = [
     children: [
       {
         path: "list",
-        name: "newsList",
-        component: NewsList,
+        name: "houseNewsList",
+        component: HouseNewsList,
         // component: () => import("@/components/news/NoticeList.vue"),
       },
     ],

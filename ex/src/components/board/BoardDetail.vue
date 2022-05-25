@@ -23,7 +23,21 @@
     </div>
     <!--text 시작-->
     <div class="line-line-gray mt-40 mb-40"></div>
-    <div class="view mr-30 ml-30 fs-18" v-html="article.content"></div>
+    <div class="view mr-30 ml-30 fs-18 mb-40" v-html="article.content"></div>
+    <div class="like-cnt-btn">
+      <span @click="likeClick" class="ml-30 board-heart">
+        <img
+          v-if="likeClicked"
+          class="favorite-icon"
+          src="@/assets/images/favorite-fill.svg"
+        /><img
+          v-else
+          class="favorite-icon"
+          src="@/assets/images/favorite-border.svg"
+        />
+      </span>
+      <span class="ml-15 fs-16 board-heart roMid">{{ likecnt }}</span>
+    </div>
     <div class="line-line-gray mt-40 mb-40"></div>
     <!--text end-->
 
@@ -62,6 +76,8 @@ export default {
   data: function () {
     return {
       article: {},
+      likeClicked: false,
+      likecnt: 0, // 임의로 0으로 집어넣음
     };
   },
   created() {
@@ -74,11 +90,28 @@ export default {
       // 현재 route를 /list로 변경.
       this.$router.push({ name: "board" });
     },
+    likeClick() {
+      this.likeClicked = !this.likeClicked;
+      if (this.likeClicked == true) {
+        this.likecnt++;
+      } else {
+        this.likecnt--;
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss">
+.favorite-icon {
+  width: 30px;
+  height: 30px;
+}
+.like-cnt-btn {
+  display: flex;
+  // justify-content: center;
+  align-content: center;
+}
 .boardTitleIcon {
   weight: 40px;
   height: 40px;

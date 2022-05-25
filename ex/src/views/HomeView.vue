@@ -113,7 +113,7 @@ export default {
   methods: {
     moveJoin() {
       // 현재 route를 /list로 변경.
-      this.$router.push({ name: "join" });
+      this.$router.push({ name: "Join" });
     },
   },
 };

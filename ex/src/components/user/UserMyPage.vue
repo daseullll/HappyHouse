@@ -1,11 +1,12 @@
 <template>
   <div class="regist_form mypage-box">
     <div class="mypage notoMid">
-      <div class="mypage-name fs-32 mb-30 notoBold">
+      <div class="empty mt-40"></div>
+      <div class="mypage-name fs-32 mt-40 mb-30 notoBold">
         {{ userInfo.username }}님의 회원정보입니다 :)
       </div>
       <hr />
-      <table>
+      <table class="mt-40 mb-40">
         <tr class="mypage-id" id="ID">
           <td class="fs-18 mr-15 mypage-label">ID</td>
           <td class="fs-18 mypage-text">{{ userInfo.userid }}</td>
@@ -76,6 +77,7 @@ export default {
 .mypage-btn-form {
   margin: vh(70px) vw(20px) 0px vw(20px);
   align-content: center;
+  justify-content: center;
   display: flex;
 }
 .mypage-btn-modify {
