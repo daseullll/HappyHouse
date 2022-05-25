@@ -7,7 +7,6 @@
     <p align="center">
   <img src="https://img.shields.io/badge/API-Kakao_Map-red?style=flat"
   <img src="https://img.shields.io/badge/API-Naver_News-skyblue?style=flat"> 
-  <img src="https://img.shields.io/badge/Library-vue_Chart-4285F4?style=flat&logo=google&logoColor=white">
   <img src="https://img.shields.io/badge/Library-vue_Bootstrap-563D7C?style=flat&logo=bootstrap">
   <img src="https://img.shields.io/badge/Language-Java_11-007396?style=flat&logo=java&logoColor=white"> 
   <img src="https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white"> 
@@ -53,20 +52,21 @@
 root
     ├── public
     ├── src
-    │     ├── apis                    # API 관련
+    │     ├── api                     # API 관련
     │     ├── assets                  # 미디어 파일들(폰트, 아이콘, 이미지..)
     │     │      ├── images           # 이미지 파일 관련
     │     │      └── styles           # 폰트, 색상
     │     │             └── fonts
     │     ├── components              # 컴포넌트
     │     │      └── board            # (커뮤니티 페이지)
+    │     │      └── house            # (주택 정보 페이지)
     │     │      └── layout           # (공통, 레이아웃)
     │     │      └── news             # (뉴스 페이지)
     │     │      └── user             # (회원 관리 페이지)
     │     │      └── common           # (공통,페이지별)
     │     ├── routers                 # 라우팅
     │     └── store                   # 상태관리
-    │     │      └── modules          # (?????????)
+    │     │      └── modules          # (모듈 상태관리)
     │     └── views                   # 어플리케이션 경로의 진입점
     └── dist                          # 빌드 파일
           └── ...

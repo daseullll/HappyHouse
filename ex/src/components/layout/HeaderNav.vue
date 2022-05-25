@@ -14,7 +14,7 @@
       <router-link to="/news">뉴스</router-link>
     </div>
     <div class="user" v-if="userInfo">
-      <router-link to="/user">마이페이지</router-link>
+      <router-link class="fs-16" to="/user">마이페이지</router-link>
       <button class="logout-btn fs-16" @click.prevent="onClickLogout">
         로그아웃
       </button>
