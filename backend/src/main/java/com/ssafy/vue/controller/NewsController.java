@@ -37,13 +37,41 @@ public class NewsController {
 		Elements newsElements = newslist.select("li");
 		int cnt=1;
 		for(Element e : newsElements){
-			if(cnt%11!=0 && cnt<=10) {
+			if(cnt%10!=0 && cnt<=9) {
 				NewsDto news = new NewsDto();
 				news.setImg(e.getElementsByAttribute("src").attr("src"));
 //				news.setTitle(e.getElementsByAttribute("alt").attr("alt"));
 				news.setTitle(e.select("a").text());
 				
 				news.setUrl(e.getElementsByAttribute("href").attr("href"));
+				list.add(news);
+			}
+			cnt++;
+		}
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+	
+	@GetMapping("/crawl2")
+	public ResponseEntity<List<NewsDto>> crawling2() throws Exception {
+		
+		String url = "http://www.eduinnews.co.kr/news/articleList.html?sc_section_code=S1N5&view_type=sm";
+		
+		Document doc = Jsoup.connect(url).get();
+		List<NewsDto> list = new ArrayList<>();
+		
+		Element newslist = doc.select(".section-body").get(0);
+		Elements newsElements = newslist.select("li");
+		int cnt=1;
+		for(Element e : newsElements){
+			if(cnt%11!=0 && cnt<=10) {
+				NewsDto news = new NewsDto();
+				news.setImg(e.getElementsByAttribute("src").attr("src"));
+//				news.setTitle(e.getElementsByAttribute("alt").attr("alt"));
+				news.setTitle(e.select(".titles a").text());
+				
+				news.setUrl(e.getElementsByAttribute("href").attr("href"));
+				
+				
 				list.add(news);
 			}
 			cnt++;

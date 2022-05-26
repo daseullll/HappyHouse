@@ -135,9 +135,11 @@ public class MemberController {
 	
 	@DeleteMapping("{userid}")
 	public ResponseEntity<String> deleteMember(@PathVariable String userid){
+		System.out.println(userid);
 		try {
 			memberService.deleteMember(userid);
 		} catch (Exception e) {
+			System.out.println("zz");
 			return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);

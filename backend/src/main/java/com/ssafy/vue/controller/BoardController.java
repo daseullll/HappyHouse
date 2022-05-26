@@ -58,6 +58,16 @@ public class BoardController {
 		}
 		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
 	}
+    
+    @PutMapping("/like/{articleno}")
+	public ResponseEntity<String> updateHit(@PathVariable int articleno) {
+		logger.debug("updateHit - 호출");
+		
+		boardService.updateHit(articleno);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		
+	}
+    
 
     @ApiOperation(value = "게시판 글정보 수정", notes = "글번호에 해당하는 게시글의 정보를 수정한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PutMapping("{articleno}")

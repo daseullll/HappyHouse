@@ -1,83 +1,57 @@
 package com.ssafy.vue.dto;
 
 public class SchoolDto {
-	private String schoolType;
 	private String schoolName;
-	private String schoolZipCode;
-	private String schoolAddress1;
-	private String schoolAddress2;
-	private String schoolPhone;
-	private String schoolWebAdd;
-	private String schoolEstDate;
-
-	public String getSchoolWebAdd() {
-		return schoolWebAdd;
-	}
-
-	public void setSchoolWebAdd(String schoolWebAdd) {
-		this.schoolWebAdd = schoolWebAdd;
-	}
-
-	public String getSchoolType() {
-		return schoolType;
-	}
-
-	public void setSchoolType(String schoolType) {
-		this.schoolType = schoolType;
-	}
+	private String schoolLevel;
+	private String estaDate;
+	private String estaForm;
+	private String address;
+	private String lat;
+	private String lng;
+	
 
 	public String getSchoolName() {
 		return schoolName;
 	}
-
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
 	}
-
-	public String getSchoolZipCode() {
-		return schoolZipCode;
+	public String getSchoolLevel() {
+		return schoolLevel;
 	}
-
-	public void setSchoolZipCode(String schoolZipCode) {
-		this.schoolZipCode = schoolZipCode;
+	public void setSchoolLevel(String schoolLevel) {
+		this.schoolLevel = schoolLevel;
 	}
-
-	public String getSchoolAddress1() {
-		return schoolAddress1;
+	public String getEstaDate() {
+		return estaDate;
 	}
-
-	public void setSchoolAddress1(String schoolAddress1) {
-		this.schoolAddress1 = schoolAddress1;
+	public void setEstaDate(String estaDate) {
+		this.estaDate = estaDate;
 	}
-
-	public String getSchoolAddress2() {
-		return schoolAddress2;
+	public String getEstaForm() {
+		return estaForm;
 	}
-
-	public void setSchoolAddress2(String schoolAddress2) {
-		this.schoolAddress2 = schoolAddress2;
+	public void setEstaForm(String estaForm) {
+		this.estaForm = estaForm;
 	}
-
-	public String getSchoolPhone() {
-		return schoolPhone;
+	public String getAddress() {
+		return address;
 	}
-
-	public void setSchoolPhone(String schoolPhone) {
-		this.schoolPhone = schoolPhone;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-
-	public String getSchoolEstDate() {
-		return schoolEstDate;
+	public String getLat() {
+		return lat;
 	}
-
-	public void setSchoolEstDate(String schoolEstDate) {
-		this.schoolEstDate = schoolEstDate;
+	public void setLat(String lat) {
+		this.lat = lat;
 	}
-
-	@Override
-	public String toString() {
-		return "SchoolDto [schoolType=" + schoolType + ", schoolName=" + schoolName + ", schoolZipCode=" + schoolZipCode
-				+ ", schoolAddress1=" + schoolAddress1 + ", schoolAddress2=" + schoolAddress2 + ", schoolPhone="
-				+ schoolPhone + ", schoolEstDate=" + schoolEstDate + "]";
+	public String getLng() {
+		return lng;
 	}
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+	
+	
 }
