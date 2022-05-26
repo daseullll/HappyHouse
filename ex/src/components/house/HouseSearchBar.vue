@@ -60,6 +60,8 @@ export default {
 
       customOverlays: [],
       overlayIdx: 0,
+
+      //schools: [],
     };
   },
   mounted() {
@@ -75,7 +77,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(houseStore, ["sidos", "guguns", "dongs", "houses"]),
+    ...mapState(houseStore, ["sidos", "guguns", "dongs", "houses", "schools"]),
   },
   created() {
     this.CLEAR_SIDO_LIST();
@@ -88,6 +90,7 @@ export default {
       "getGugun",
       "getDong",
       "getHouseList",
+      "getSchoolList",
     ]),
     ...mapMutations(houseStore, [
       "CLEAR_SIDO_LIST",
@@ -108,6 +111,10 @@ export default {
     },
     async searchApt() {
       if (this.dongCode) {
+        let selectOption = document.getElementById("gugun");
+        selectOption =
+          selectOption.options[selectOption.selectedIndex].innerHTML;
+        this.getSchoolList(selectOption);
         await this.getHouseList(this.dongCode);
         this.displayMarkers(this.houses);
       }
@@ -180,6 +187,24 @@ export default {
         );
         fragment.appendChild(itemEl);
       }
+
+      for (var idx = 0; idx < 10; idx++) {
+        //console.log("Z", this.schools[idx]);
+        let placePosition = new kakao.maps.LatLng(
+          this.schools[idx].lat,
+          this.schools[idx].lng
+        );
+        let marker = this.addMarker(placePosition, idx);
+        let itemEl = this.getListItem(idx, this.schools[idx]); // 검색 결과 항목 Element를 생성합니다
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        // bounds.extend(placePosition);
+        // 마커와 검색결과 항목에 mouseover 했을때
+        // 해당 장소에 인포윈도우에 장소명을 표시합니다
+        // mouseout 했을 때는 인포윈도우를 닫습니다
+        (function () {})(this.map, marker, this.schools[idx].schoolName);
+        fragment.appendChild(itemEl);
+      }
       // 마커를 생성하고 지도에 표시합니다
       // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
       this.map.setBounds(bounds);
@@ -204,6 +229,7 @@ export default {
           image: markerImage,
         });
       marker.setMap(this.map); // 지도 위에 마커를 표출합니다
+
       this.markers.push(marker); // 배열에 생성된 마커를 추가합니다
       return marker;
     },
