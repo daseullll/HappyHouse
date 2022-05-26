@@ -68,6 +68,7 @@ li {
   justify-content: center;
   align-content: center;
   text-align: center;
+  background-color: $color-white !important;
 
   a {
     text-decoration: none;
