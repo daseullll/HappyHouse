@@ -9,7 +9,7 @@
               <img src="@/assets/images/logo-gray-main.svg" class="logo-home" />
             </div>
             <div class="sub-main fs-28 notoMid">
-              주택 정보와 학군 정보를 한눈에
+              서울시 주택정보와 학군정보를 한눈에
             </div>
             <div class="sub-sub-main fs-20 notoMid">
               공공데이터와 카카오맵 API를 활용한
@@ -222,7 +222,7 @@ export default {
 
   img {
     position: absolute;
-    width: 700px;
+    width: 650px;
     left: 0;
     bottom: 0;
     margin-left: -70px;
