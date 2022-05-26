@@ -76,19 +76,19 @@
               <span class="icon"><img src="@/assets/images/kakao.svg" /></span>
               <span>카카오로 시작하기</span>
             </button>
-            <button class="btn-naver-login btn-user notoMid mb-10">
+            <!-- <button class="btn-naver-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/naver.svg" /></span>
               <span>네이버로 시작하기</span>
             </button>
             <button class="btn-google-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/google.svg" /></span>
               <span>구글로 시작하기</span>
-            </button>
+            </button> -->
           </form-item>
         </form>
       </b-col>
-      <b-col>
-        <img />
+      <b-col style="text-align: center" class="login-img">
+        <img src="@/assets/images/loginImg.png" />
       </b-col>
     </b-row>
   </b-container>
@@ -233,6 +233,14 @@ export default {
   }
   span {
     text-align: center;
+  }
+}
+.login-img {
+  text-align: center;
+
+  img {
+    width: 600px;
+    margin-left: -50px;
   }
 }
 // input {

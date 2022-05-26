@@ -1,7 +1,10 @@
 <template>
   <b-container class="outer">
     <b-row class="login">
-      <b-col class="col-form">
+      <b-col style="text-align: center" class="login-img">
+        <img src="@/assets/images/joinImg.png" />
+      </b-col>
+      <b-col class="col-form ml-130">
         <h1 class="fs-48 notoBold mt-20 mb-20">회원가입</h1>
         <h5 class="fs-20 notoMid mb-10">Enter your ID and password to join</h5>
         <!-- Sign In Form -->
@@ -118,19 +121,16 @@
               <span class="icon"><img src="@/assets/images/kakao.svg" /></span>
               카카오로 시작하기
             </button>
-            <button class="btn-naver-login btn-user notoMid mb-10">
+            <!-- <button class="btn-naver-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/naver.svg" /></span>
               네이버로 시작하기
             </button>
             <button class="btn-google-login btn-user notoMid mb-10">
               <span class="icon"><img src="@/assets/images/google.svg" /></span>
               구글로 시작하기
-            </button>
+            </button> -->
           </form-item>
         </form>
-      </b-col>
-      <b-col>
-        <img />
       </b-col>
     </b-row>
   </b-container>
@@ -306,6 +306,14 @@ export default {
   }
   span {
     text-align: center;
+  }
+}
+.join-img {
+  text-align: center;
+
+  img {
+    width: 600px;
+    margin-right: 50px;
   }
 }
 // input {
