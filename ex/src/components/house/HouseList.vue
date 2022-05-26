@@ -15,7 +15,11 @@
     </b-container>
     <b-container v-else class="bv-example-row">
       <b-row>
-        <b-col><b-alert show>주택 목록이 없습니다.</b-alert></b-col>
+        <b-col
+          ><b-alert show variant="warning"
+            >주택 목록이 없습니다.</b-alert
+          ></b-col
+        >
       </b-row>
     </b-container>
   </div>
@@ -49,7 +53,7 @@ export default {
   text-align: center;
 }
 .house-title-row {
-  background-color: rgb(245, 245, 208);
+  background-color: #fff3cd;
   text-align: center;
   padding-top: 12.5px;
   height: 50px;

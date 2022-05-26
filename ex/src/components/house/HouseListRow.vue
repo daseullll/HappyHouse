@@ -63,12 +63,12 @@ export default {
   width: 50px;
 }
 .mouse-over-bgcolor {
-  background-color: rgb(235, 235, 164);
+  background-color: #f1dfa3;
 }
 .house-list-row-show {
   padding-top: 10px;
   text-align: center;
-  border: rgb(245, 245, 208);
+  border: #fff3cd;
   margin-top: 10px;
   height: 50px;
 }
