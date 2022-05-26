@@ -71,5 +71,8 @@ export default {
   border: #fff3cd;
   margin-top: 10px;
   height: 50px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 </style>

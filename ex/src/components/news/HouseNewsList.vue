@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-40" style="display: inline-block">
+  <div class="pt-40 house-list-box" style="display: inline-block">
     <ul class="list-card">
       <news-list-item
         v-for="article in articles"
@@ -64,6 +64,10 @@ ul {
 }
 .board-box-empty {
   padding-top: 10px;
+}
+.house-list-box {
+  height: 600px;
+  overflow: scroll;
 }
 // .show-news {
 //   display: inline-flex;

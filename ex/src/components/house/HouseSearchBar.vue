@@ -1,6 +1,6 @@
 <template>
   <div class="house-nav-bar">
-    <b-row class="mt-4 mb-4 text-center">
+    <b-row class="mt-20 mb-20 text-center">
       <b-col class="sm-1">
         <b-form-select
           name="sido"
@@ -283,7 +283,7 @@ export default {
       //   console.log(title);
       var content = `
           <div class="mapoverlaybox">
-              <div class="boxtitle">${title}</div>
+              <div class="boxtitle notoBold">${title}</div>
               <ul>
                   <li class="up">
                       <span class="title">건축년도</span>
@@ -325,13 +325,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .mapoverlaybox {
   position: relative;
   width: 280px;
   height: 200px;
-  background-color: rgb(69, 69, 69);
-  padding: 15px 10px;
+  background-color: $color-primary;
+  padding: 20px 15px;
+  border-radius: 15px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 .mapoverlaybox div,
 ul {
@@ -353,9 +357,9 @@ ul {
 .mapoverlaybox li {
   position: relative;
   margin-bottom: 2px;
-  background: rgb(69, 69, 69);
+  background: $color-primary;
   padding: 5px 10px;
-  color: #aaabaf;
+  color: $color-gray-1;
   line-height: 1;
 }
 .mapoverlaybox li span {

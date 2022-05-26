@@ -15,7 +15,7 @@
       <b-row>
         <b-col>
           <b-table-simple hover responsive>
-            <b-thead head-variant="dark">
+            <b-thead class="info-modal notoBold">
               <b-tr>
                 <b-th>이름</b-th>
                 <b-th>거래 날짜</b-th>
@@ -74,8 +74,20 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .modal-table {
   border: #fff3cd;
+}
+.info-modal {
+  background-color: $color-secondary;
+  color: $color-dark;
+}
+.btn-primary {
+  background-color: $color-primary;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: $color-secondary;
+  color: $color-dark;
 }
 </style>
