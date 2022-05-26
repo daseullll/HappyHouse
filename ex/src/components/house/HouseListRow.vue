@@ -7,10 +7,10 @@
     :class="{ 'mouse-over-bgcolor': isColor }"
   >
     <b-col>
-      {{ house.aptName }}
+      {{ house.dongName }}
     </b-col>
     <b-col>
-      {{ house.dongName }}
+      {{ house.aptName }}
     </b-col>
     <b-col>
       {{ house.buildYear }}
@@ -51,19 +51,19 @@ export default {
     showHouseDealModal() {
       this.getHouseDealList(this.house.aptCode);
       this.toggleHouseDealModal();
-      console.log("목록 호출!!~~");
+      // console.log("목록 호출!!~~");
       alert;
     },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .apt {
   width: 50px;
 }
 .mouse-over-bgcolor {
-  background-color: #f1dfa3;
+  background-color: $color-secondary;
 }
 .house-list-row-show {
   padding-top: 10px;
