@@ -54,7 +54,9 @@ export default {
   methods: {
     moveModify() {
       // 현재 route를 /list로 변경.
-      this.$router.push({ name: "Modify" });
+      this.$router.push({
+        name: "Modify",
+      });
     },
     moveWithdraw() {
       // 현재 route를 /list로 변경.
