@@ -4,8 +4,8 @@
       <a :href="'https://land.naver.com/' + url">
         <div class="fs-28" style="margin: 25px 20px 20px 25px">
           <!-- <img class="newsIcon" src="@/assets/images/emoji/VoltageEmoji.png" />
-           -->
-          <!-- 🏢 -->
+
+          🏢 -->
           <div class="fs-14 notoMid new-list-cata">아파트</div>
         </div>
         <div class="news-title notoBold fs-20">{{ title }}</div>
@@ -97,7 +97,7 @@ li {
     postion: relative;
     bottom: 30px;
     width: 300px;
-    height: 215px;
+    height: 220px;
     border: 0;
     overflow: hidden;
     border-radius: 0 0 15px 15px;
