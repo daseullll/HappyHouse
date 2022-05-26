@@ -125,7 +125,7 @@ export default {
     registBoard() {
       http
         .post("/board", {
-          // userid: "{{userInfo.userid}}",
+          userid: this.userInfo.userid,
           subject: this.subject,
           content: this.content,
         })
