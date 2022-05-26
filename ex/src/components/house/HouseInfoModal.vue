@@ -10,6 +10,7 @@
       @ok="closeHouseDealModal"
       v-model="houseDealModal"
       :title="`${houseDeals[0].aptName} 거래내역`"
+      v-if="houseDeals"
     >
       <b-row>
         <b-col>

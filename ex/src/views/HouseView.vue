@@ -30,7 +30,7 @@
         </b-row>
       </div>
     </section>
-    <div class="apt_show" id="map"></div>
+    <div class="apt_show" id="map" style="width: 500px; height: 400px"></div>
   </div>
 </template>
 
