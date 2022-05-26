@@ -5,7 +5,7 @@
         <b-col class="notoMid"> 법정동 </b-col>
         <b-col class="notoMid"> 아파트이름 </b-col>
         <b-col class="notoMid"> 건축년도 </b-col>
-        <b-col class="notoMid"> 최근거래금액 </b-col>
+        <b-col class="notoMids"> 최근거래금액 </b-col>
       </b-row>
       <house-list-row
         v-for="(house, index) in houses"
@@ -60,6 +60,6 @@ export default {
   height: 50px;
 }
 .house-list {
-  margin-left: 80px;
+  // margin-left: 80px;
 }
 </style>
