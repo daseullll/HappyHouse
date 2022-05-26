@@ -2,24 +2,31 @@
   <div id="fullpage main banner">
     <!--section 1 start-->
     <section class="active page-container num1">
-      <div class="section-contents">
-        <div class="home-title">
-          <div class="title-main">
-            <img src="@/assets/images/logo-gray-main.svg" class="logo-home" />
-          </div>
-          <div class="sub-main fs-28 notoMid">
-            주택정보와 학군 정보를 한눈에
-          </div>
-          <div class="sub-sub-main fs-20 notoMid">
-            공공데이터와 카카오맵 API를 활용한
-          </div>
-          <div class="sub-sub-main fs-20 notoMid">
-            아파트 실거래가 정보 및 학군 정보 제공 사이트
-          </div>
-          <button class="btn-main fs-24 notoBold" @click="moveJoin">
-            START
-          </button>
+      <div class="home-title">
+        <div class="title-main">
+          <img src="@/assets/images/logo-gray-main.svg" class="logo-home" />
         </div>
+        <div class="sub-main fs-28 notoMid">주택정보와 학군 정보를 한눈에</div>
+        <div class="sub-sub-main fs-20 notoMid">
+          공공데이터와 카카오맵 API를 활용한
+        </div>
+        <div class="sub-sub-main fs-20 notoMid">
+          아파트 실거래가 정보 및 학군 정보 제공 사이트
+        </div>
+        <button class="btn-main fs-24 notoBold" @click="moveJoin">START</button>
+      </div>
+      <div class="custom-shape-divider-bottom-1653549259">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"
+          ></path>
+        </svg>
       </div>
     </section>
     <!--section 1 end-->
@@ -125,7 +132,26 @@ export default {
 //   height: 540px;
 //   background-color: $KAKAO_YELLOW;
 // }
+.custom-shape-divider-bottom-1653549259 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
 
+.custom-shape-divider-bottom-1653549259 svg {
+  // position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 128px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1653549259 .shape-fill {
+  fill: $color-white;
+}
 .page-container {
   // position: absolute;
   left: 0;
@@ -136,14 +162,31 @@ export default {
 .num1 {
   width: 100vw;
   height: 100vh;
+  background-image: linear-gradient(
+    to left top,
+    #ffa310,
+    #ff9b34,
+    #ff944a,
+    #ff905d,
+    #ff8d6e,
+    #ff938a,
+    #ff9ca4,
+    #ffa7ba,
+    #fbbed9,
+    #f6d6ef,
+    #f5ecfb,
+    #ffffff
+  );
+
+  // margin: vh(150px) vw(130px) 0 vw(130px);
 
   padding: vh(100px) 0 0 0;
   .title-main {
-    margin-top: vh(20px);
+    // margin-top: vh(20px);
     margin-bottom: vh(40px);
   }
   .logo-home {
-    margin-top: vh(30px);
+    // margin-top: vh(30px);
     height: vh(220px);
   }
   .sub-main {
@@ -155,6 +198,11 @@ export default {
 
   .sub-sub-main {
     color: $color-gray-9;
+  }
+
+  .home-title {
+    margin: 80px 130px 0 130px;
+    // top: 0;
   }
 }
 
