@@ -132,20 +132,22 @@ export default {
 //   height: 540px;
 //   background-color: $KAKAO_YELLOW;
 // }
-.custom-shape-divider-bottom-1653549259 {
+.custom-shape-divider-bottom-1653549259 svg {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  // height: 200px;
 }
 
-.custom-shape-divider-bottom-1653549259 svg {
-  // position: relative;
+.custom-shape-divider-bottom-1653549259 {
+  position: absolute;
+  bottom: 0;
   display: block;
   width: calc(100% + 1.3px);
-  height: 128px;
+  // height: 300px;
   transform: rotateY(180deg);
 }
 
@@ -180,20 +182,20 @@ export default {
 
   // margin: vh(150px) vw(130px) 0 vw(130px);
 
-  padding: vh(100px) 0 0 0;
+  padding: 80px 0 0 0;
   .title-main {
-    // margin-top: vh(20px);
-    margin-bottom: vh(40px);
+    margin-top: vh(30px);
+    margin-bottom: 40px;
   }
   .logo-home {
     // margin-top: vh(30px);
-    height: vh(220px);
+    height: vw(128px);
   }
   .sub-main {
     // letter-spacing: 0.05em;
     color: $color-dark;
-    margin-top: vh(80px);
-    margin-bottom: vh(50px);
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 
   .sub-sub-main {
@@ -201,13 +203,13 @@ export default {
   }
 
   .home-title {
-    margin: 80px 130px 0 130px;
+    margin: 150px 130px 0 130px;
     // top: 0;
   }
 }
 
 .num2 {
-  background-color: skyblue;
+  // background-color: skyblue;
   width: 100vw;
   height: 100vh;
   padding: vh(80px) 0 0 0;
@@ -220,7 +222,7 @@ export default {
 }
 
 .num3 {
-  background-color: yellow;
+  // background-color: yellow;
   width: 100vw;
   height: 100vh;
   padding: vh(80px) 0 0 0;

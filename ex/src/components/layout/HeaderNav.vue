@@ -8,7 +8,6 @@
     <div class="catagory">
       <router-link to="/">홈</router-link>
       <router-link to="/house">주택</router-link>
-      <router-link to="/school">학군</router-link>
       <!-- <router-link to="/notice">커뮤니티</router-link> -->
       <router-link to="/board">커뮤니티</router-link>
       <router-link to="/news">뉴스</router-link>
@@ -55,8 +54,8 @@ export default {
 .header {
   height: 78px;
   width: 100%;
-  //   position: absolute;
-  // position: absolute;
+  position: fixed;
+  z-index: 1;
   left: 0%;
   top: 0%;
   // position: fixed;
