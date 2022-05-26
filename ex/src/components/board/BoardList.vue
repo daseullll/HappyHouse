@@ -13,35 +13,25 @@
       </button>
     </div>
     <div class="board-box" v-if="articles.length">
-      <table
+      <b-table
         class="board-table"
-        :articles="articles"
+        :items="articles"
         id="board-list"
         :per-page="perPage"
         :current-page="currentPage"
+        :fields="fields"
       >
-        <colgroup>
-          <col style="width: 40%" />
-          <col style="width: 25%" />
-          <col style="width: 10%" />
-          <col style="width: 25%" />
-        </colgroup>
-        <thead>
-          <tr class="fs-18 notoMid tb-first-line">
-            <th>제목</th>
-            <th>작성자</th>
-            <th>좋아요 수</th>
-            <th>작성일</th>
-          </tr>
-        </thead>
-        <tbody>
-          <board-list-item
-            v-for="article in articles"
-            :key="article.articleno"
-            :article="article"
-          ></board-list-item>
-        </tbody>
-      </table>
+        <template #cell(subject)="data"
+          ><router-link
+            :to="{
+              name: 'boardDetail',
+              // query: { isbn: data.item.subject },
+              params: { articleno: data.item.articleno },
+            }"
+            >{{ data.item.subject }}</router-link
+          ></template
+        >
+      </b-table>
     </div>
     <div v-else class="text-center board-box-empty">
       <p>게시글이 없습니다ㅠ^ㅠ</p>
@@ -60,16 +50,22 @@
 
 <script>
 import http from "@/api/http.js";
-import BoardListItem from "@/components/board/BoardListItem.vue";
+// import BoardListItem from "@/components/board/BoardListItem.vue";
 
 export default {
   name: "BoardList",
-  components: { BoardListItem },
+  // components: { BoardListItem },
   data() {
     return {
       currentPage: 1,
       perPage: 10,
       articles: [],
+      fields: [
+        { key: "subject", label: "제목", tdClass: "tdClass" },
+        { key: "userid", label: "작성자", tdClass: "tdClass" },
+        { key: "likecnt", label: "좋아요", tdClass: "tdClass" },
+        { key: "regtime", label: "작성일", tdClass: "tdClass" },
+      ],
     };
   },
   created() {
@@ -85,6 +81,13 @@ export default {
   methods: {
     moveWrite() {
       this.$router.push({ name: "boardWrite" });
+    },
+    moveDetail() {
+      this.$router.push({
+        name: "boardDetail",
+        params: { articleno: this.article.articleno },
+        // path: "detail/:articleno",
+      });
     },
   },
 };
