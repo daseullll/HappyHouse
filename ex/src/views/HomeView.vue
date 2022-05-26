@@ -1,5 +1,12 @@
 <template>
-  <div id="fullpage main banner">
+  <div
+    id="fullpage main banner"
+    style="
+       {
+        background-color: #fffcf7;
+      }
+    "
+  >
     <!--section 1 start-->
     <section class="active page-container num1">
       <b-row>
@@ -44,8 +51,8 @@
     <!--section 2 start-->
     <section class="active page-container num2">
       <b-row>
-        <b-col style="text-align: center" class="main-img">
-          <!-- <img src="@/assets/images/main.png" /> -->
+        <b-col style="text-align: center" class="num2-img">
+          <img src="@/assets/images/17.png" />
         </b-col>
         <b-col>
           <div class="section-contents">
@@ -79,7 +86,7 @@
           <div class="section-contents">
             <div class="home-title ta-l">
               <div class="sub-main fs-40 roBold">02</div>
-              <div class="mb-30">
+              <div class="pb-30">
                 <div class="title-main fs-48 notoBold">우리 동네 정보</div>
                 <div class="title-main fs-48 notoBold mt--15">궁금하다면?</div>
               </div>
@@ -128,7 +135,7 @@
           <b-col>
             <div class="home-title ta-r">
               <div class="sub-main fs-40 roBold">03</div>
-              <div class="mb-30">
+              <div class="pb-30">
                 <div class="title-main fs-48 notoBold">부동산 뉴스</div>
                 <div class="title-main fs-48 notoBold mt--15">학교 뉴스</div>
               </div>
@@ -157,7 +164,7 @@
           <b-col>
             <div class="home-title ta-l">
               <div class="sub-main fs-40 roBold">+</div>
-              <div class="mb-30">
+              <div class="pb-30">
                 <div class="title-main fs-48 notoBold">CONTACT</div>
               </div>
 
@@ -229,6 +236,19 @@ export default {
     margin-bottom: -30px;
   }
 }
+.num2-img {
+  text-align: center;
+  position: absolute;
+
+  img {
+    position: absolute;
+    width: 800px;
+    left: 0;
+    bottom: 0;
+    margin-left: 60px;
+    margin-bottom: 30px;
+  }
+}
 .num3-img {
   text-align: center;
   position: absolute;
@@ -243,18 +263,18 @@ export default {
   }
 }
 .custom-shape-divider-bottom-1653549259 svg {
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   line-height: 0;
-  height: 200px;
+  height: 130px;
 }
 
 .custom-shape-divider-bottom-1653549259 {
   position: absolute;
-  margin-top: -200px;
+  // margin-top: -200px;
   bottom: 0;
   display: block;
   width: calc(100% + 1.3px);
@@ -275,7 +295,7 @@ export default {
 }
 .num1 {
   width: 100vw;
-  height: 100vh;
+  height: 800px;
 
   background-image: linear-gradient(
     to bottom,
@@ -295,7 +315,7 @@ export default {
 
   // margin: vh(150px) vw(130px) 0 vw(130px);
 
-  padding: 80px 0 0 0;
+  // padding: 80px 0 0 0;
   .title-main {
     margin-top: vh(30px);
     margin-bottom: 40px;
@@ -323,8 +343,8 @@ export default {
 
 .num2 {
   background-color: #fffcf7;
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   padding: vh(80px) 0 0 0;
   .title-main {
     margin-bottom: vh(0px);
@@ -336,8 +356,8 @@ export default {
 
 .num3 {
   background-color: #fffcf7;
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   padding: vh(80px) 0 0 0;
   .title-main {
     margin-bottom: 0px;
@@ -348,24 +368,24 @@ export default {
 }
 
 .num4 {
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   background-color: #fffcf7;
   padding: vh(80px) 0 0 0;
 }
 .num5 {
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   background-color: #fffcf7;
   padding: vh(80px) 0 vh(80px) 0;
-  // margin-bottom: -80px;
+  margin-bottom: -80px;
 }
 
 .section-contents {
-  margin: vh(150px) vw(130px);
+  margin: vh(500px) vw(130px) 0 vw(130px);
 }
 .section-contents-1 {
-  margin: vh(150px) vw(130px) vh(350px) vw(130px);
+  margin: vh(300px) vw(130px) vh(350px) vw(130px);
 }
 
 .btn-main {
