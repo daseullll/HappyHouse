@@ -40,7 +40,7 @@
           src="@/assets/images/favorite-border.svg"
         />
       </span>
-      <span class="ml-15 fs-16 board-heart roMid">{{ article.hit }}</span>
+      <span class="ml-15 fs-16 board-heart roMid"></span>
     </div>
     <!--버튼 시작-->
     <div class="detail-btn-form">
