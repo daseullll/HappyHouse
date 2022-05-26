@@ -30,8 +30,8 @@
   </div>
 </template>
 <script>
-// import http from "@/api/http.js";
-import { mapState } from "vuex";
+import http from "@/api/http.js";
+import { mapState, mapMutations } from "vuex";
 const memberStore = "memberStore";
 export default {
   name: "UserWithdraw",
@@ -40,13 +40,24 @@ export default {
     ...mapState(memberStore, ["userInfo"]),
   },
   methods: {
+    ...mapMutations(memberStore, ["SET_IS_LOGIN", "SET_USER_INFO"]),
     moveMyPage() {
       // 현재 route를 /list로 변경.
       this.$router.push({ name: "MyPage" });
     },
     checkWithdraw() {
-      // 현재 route를 /list로 변경.
-      //   this.$router.push({ name: "Withdraw" });
+      http.delete(`/user/${this.userInfo.userid}`).then(({ data }) => {
+        let msg = "탈퇴 처리시 문제가 발생했습니다.";
+        if (data === "success") {
+          msg = "탈퇴 되었습니다.";
+
+          this.SET_IS_LOGIN(false);
+          this.SET_USER_INFO(null);
+          sessionStorage.removeItem("access-token");
+        }
+        alert(msg);
+        this.$router.push({ name: "home" });
+      });
     },
   },
 };
