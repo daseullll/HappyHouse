@@ -274,4 +274,83 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.mapoverlaybox {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  background-color: rgb(69, 69, 69);
+  padding: 15px 10px;
+}
+.mapoverlaybox div,
+ul {
+  margin: 0;
+  padding: 0;
+}
+.mapoverlaybox li {
+  list-style: none;
+}
+.mapoverlaybox .boxtitle {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.mapoverlaybox ul {
+  width: 247px;
+}
+.mapoverlaybox li {
+  position: relative;
+  margin-bottom: 2px;
+  background: rgb(69, 69, 69);
+  padding: 5px 10px;
+  color: #aaabaf;
+  line-height: 1;
+}
+.mapoverlaybox li span {
+  display: inline;
+}
+.mapoverlaybox li .number {
+  font-size: 16px;
+  font-weight: bold;
+}
+.mapoverlaybox li .title {
+  font-size: 13px;
+  text-align: left !important;
+}
+.mapoverlaybox li .last {
+  font-size: 12px;
+  margin-right: 15px;
+}
+.mapoverlaybox ul .arrow {
+  position: absolute;
+  margin-top: 8px;
+  right: 25px;
+  width: 5px;
+  height: 3px;
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/updown.png")
+    no-repeat;
+}
+.mapoverlaybox li .up {
+  background-position: 0 -40px;
+}
+.mapoverlaybox li .down {
+  background-position: 0 -60px;
+}
+.mapoverlaybox li .count {
+  position: absolute;
+  margin-top: 5px;
+  right: 15px;
+  font-size: 10px;
+}
+.mapoverlaybox li:hover {
+  color: #fff;
+  background: rgb(205, 205, 151);
+}
+.mapoverlaybox li:hover .up {
+  background-position: 0 0px;
+}
+.mapoverlaybox li:hover .down {
+  background-position: 0 -20px;
+}
+</style>
