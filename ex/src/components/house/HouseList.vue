@@ -2,10 +2,10 @@
   <div class="house-list">
     <b-container v-if="houses && houses.length != 0" class="bv-example-row">
       <b-row class="house-title-row">
-        <b-col> 법정동 </b-col>
-        <b-col> 아파트이름 </b-col>
-        <b-col> 건축년도 </b-col>
-        <b-col> 최근거래금액 </b-col>
+        <b-col class="notoMid"> 법정동 </b-col>
+        <b-col class="notoMid"> 아파트이름 </b-col>
+        <b-col class="notoMid"> 건축년도 </b-col>
+        <b-col class="notoMid"> 최근거래금액 </b-col>
       </b-row>
       <house-list-row
         v-for="(house, index) in houses"
@@ -43,7 +43,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .bv-example-row {
   padding-left: 50px;
   padding-right: 50px;
@@ -53,7 +53,8 @@ export default {
   text-align: center;
 }
 .house-title-row {
-  background-color: #fff3cd;
+  background-color: $color-primary;
+  color: $color-white;
   text-align: center;
   padding-top: 12.5px;
   height: 50px;
