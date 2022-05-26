@@ -4,6 +4,7 @@ import {
   dongList,
   houseList,
   houseDealList,
+  schoolList,
 } from "@/api/house.js";
 
 const houseStore = {
@@ -16,6 +17,8 @@ const houseStore = {
     house: null,
     houseDeals: null,
     houseDealModal: false, //모달 토글
+    schools: [],
+    school: null,
   },
 
   getters: {},
@@ -47,6 +50,9 @@ const houseStore = {
     },
     SET_HOUSE_LIST(state, houses) {
       state.houses = houses;
+    },
+    SET_SCHOOL_LIST(state, schools) {
+      state.schools = schools;
     },
     SET_DETAIL_HOUSE(state, house) {
       state.house = house;
@@ -123,6 +129,24 @@ const houseStore = {
           commit("SET_HOUSE_LIST", data);
         },
         (error) => {
+          console.log(error);
+        }
+      );
+    },
+    async getSchoolList({ commit }, dongName) {
+      const params = {
+        address: dongName,
+      };
+      await schoolList(
+        params,
+        ({ data }) => {
+          console.log(data);
+          commit("SET_SCHOOL_LIST", data);
+        },
+        (error) => {
+          commit("SET_SCHOOL_LIST", JSON.stringify(error));
+          console.log(JSON.stringify(error));
+          console.log(JSON.parse(error));
           console.log(error);
         }
       );

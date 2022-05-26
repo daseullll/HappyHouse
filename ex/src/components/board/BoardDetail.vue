@@ -40,7 +40,7 @@
           src="@/assets/images/favorite-border.svg"
         />
       </span>
-      <span class="ml-15 fs-16 board-heart roMid">{{ likecnt }}</span>
+      <span class="ml-15 fs-16 board-heart roMid">{{ article.hit }}</span>
     </div>
     <!--버튼 시작-->
     <div class="detail-btn-form">
@@ -89,7 +89,7 @@ export default {
     return {
       article: {},
       likeClicked: false,
-      likecnt: 0, // 임의로 0으로 집어넣음
+      hit: "", // 임의로 0으로 집어넣음
     };
   },
   created() {

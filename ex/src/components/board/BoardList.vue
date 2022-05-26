@@ -63,7 +63,7 @@ export default {
       fields: [
         { key: "subject", label: "제목", tdClass: "tdClass" },
         { key: "userid", label: "작성자", tdClass: "tdClass" },
-        { key: "likecnt", label: "좋아요", tdClass: "tdClass" },
+        { key: "hit", label: "좋아요", tdClass: "tdClass" },
         { key: "regtime", label: "작성일", tdClass: "tdClass" },
       ],
     };

@@ -26,6 +26,10 @@ async function houseDealSearchList(params, success, fail) {
   await api.get(`/map/search`, { params: params }).then(success).catch(fail);
 }
 
+async function schoolList(params, success, fail) {
+  await api.get(`/school`, { params: params }).then(success).catch(fail);
+}
+
 export {
   sidoList,
   gugunList,
@@ -33,4 +37,5 @@ export {
   houseList,
   houseDealList,
   houseDealSearchList,
+  schoolList,
 };
