@@ -74,38 +74,51 @@
 </template>
 
 <script>
-// import http from "@/api/http.js";
-import { mapState } from "vuex";
+import http from "@/api/http.js";
+import { mapState, mapActions } from "vuex";
 const memberStore = "memberStore";
 export default {
   name: "UserMyPage",
   components: {},
+  data() {
+    return {
+      userid: this.userid,
+      userpwd: this.userpwd,
+      username: this.username,
+      email: this.email,
+    };
+  },
+
   computed: {
     ...mapState(memberStore, ["userInfo"]),
   },
   methods: {
+    ...mapActions(memberStore, ["getUserInfo"]),
+
     moveMyPage() {
       // 현재 route를 /list로 변경.
       this.$router.push({ name: "MyPage" });
     },
-    // modifyUser(){
-    //      http
-    //     .post("/user/register", {
-    //       userid: this.userid,
-    //       userpwd: this.userpwd,
-    //       username: this.username,
-    //       email: this.email,
-    //     })
-    //     .then(({ data }) => {
-    //       // 서버에서 정상적인 값이 넘어 왔을경우 실행.
-    //       let msg = "문제가 발생했습니다.";
-    //       if (data === "success") {
-    //         msg = "회원가입이 완료되었습니다.";
-    //       }
-    //       alert(msg);
-    //       this.moveList();
-    //     });
-    // }
+    modifyUser() {
+      http
+        .put(`/user/${this.userInfo.userid}`, {
+          userid: this.userInfo.userid,
+          userpwd: this.userpwd,
+          username: this.username,
+          email: this.email,
+        })
+        .then(({ data }) => {
+          // 서버에서 정상적인 값이 넘어 왔을경우 실행.
+          let msg = "문제가 발생했습니다.";
+          if (data === "success") {
+            msg = "회원정보 수정이 완료되었습니다.";
+            let token = sessionStorage.getItem("access-token");
+            this.getUserInfo(token);
+          }
+          alert(msg);
+          this.moveMyPage();
+        });
+    },
   },
 };
 </script>
