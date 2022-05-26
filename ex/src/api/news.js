@@ -6,4 +6,8 @@ function crawling(success, fail) {
   api.get(`/news/crawl`).then(success).catch(fail);
 }
 
-export { crawling };
+function crawling2(success, fail) {
+  api.get(`/news/crawl2`).then(success).catch(fail);
+}
+
+export { crawling, crawling2 };

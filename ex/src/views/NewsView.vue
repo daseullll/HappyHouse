@@ -21,13 +21,13 @@
     </div>
     <div class="mb-40 empty"></div>
     <house-news-list v-if="houseClicked"></house-news-list>
-    <!-- <school-news-list v-if="schoolClicked"></school-news-list> -->
+    <school-news-list v-if="schoolClicked"></school-news-list>
   </div>
 </template>
 
 <script>
 import HouseNewsList from "@/components/news/HouseNewsList.vue";
-// import SchoolNewsList from "@/components/news/SchoolNewsList.vue";
+import SchoolNewsList from "@/components/news/SchoolNewsList.vue";
 
 export default {
   data() {
@@ -38,7 +38,7 @@ export default {
   },
   components: {
     HouseNewsList,
-    // SchoolNewsList,
+    SchoolNewsList,
   },
   methods: {
     showNewsAll() {
