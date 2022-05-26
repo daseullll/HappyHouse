@@ -23,8 +23,12 @@
     </div>
     <!--text 시작-->
     <div class="line-line-gray mt-40 mb-40"></div>
-    <div class="view mr-30 ml-30 fs-18 mb-40" v-html="article.content"></div>
-    <div class="like-cnt-btn">
+    <div
+      id="ariticle-board-write"
+      class="view mr-30 ml-30 fs-18 mb-40"
+      v-html="article.content"
+    ></div>
+    <div class="like-cnt-btn mt-40">
       <span @click="likeClick" class="ml-30 board-heart">
         <img
           v-if="likeClicked"
@@ -38,9 +42,6 @@
       </span>
       <span class="ml-15 fs-16 board-heart roMid">{{ likecnt }}</span>
     </div>
-    <div class="line-line-gray mt-40 mb-40"></div>
-    <!--text end-->
-
     <!--버튼 시작-->
     <div class="detail-btn-form">
       <router-link
@@ -66,14 +67,17 @@
       </router-link>
     </div>
     <!--버튼 끝-->
-    <div class="empty"></div>
-    <!--댓글 시작-->
+    <div class="line-line-gray mt-40 mb-40"></div>
+    <!--text end-->
+
+    <div class="empty mt-40"></div>
+    <!--댓글 작성 시작-->
     <div class="comment-board-box">
-      <span class="fs-28 notoMid comment-id">{{ article.userid }}</span>
+      <span class="fs-22 notoMid comment-id">{{ article.userid }}님</span>
       <input id="comment" v-model="boardComment" trim />
       <button class="comment-btn notoMid">확인</button>
     </div>
-    <!--댓글 끝!-->
+    <!--댓글 작성 끝!-->
   </div>
 </template>
 
@@ -132,6 +136,9 @@ export default {
   // display: flex;
   text-align: center;
 }
+#ariticle-board-write {
+  margin-bottom: 100px;
+}
 .board-title-img {
   align-content: center;
   // text-align: center !important;
@@ -146,7 +153,7 @@ export default {
 }
 .detail-btn-form {
   // margin-top: 70px;
-  margin: 70px 20px 0px 20px;
+  margin: 30px 20px 0px 20px;
   align-content: center;
   display: flex;
   a {
@@ -200,28 +207,34 @@ export default {
   display: flex;
   align-content: center;
   justify-content: center;
-  margin: 20px 40px;
+  margin: 20px 40px 80px 40px;
   span {
-    display: inline-block;
+    display: flex;
     width: 130px;
-    background-color: $color-sub;
-    text-align: left;
-    color: $color-dark;
+    text-align: center;
+    color: $color-gray-7;
     justify-content: center;
     align-content: center;
+    align-items: center;
   }
   #comment {
     border: 1px solid $color-gray-5;
     margin: 10px 10px;
     border-radius: 10px;
+    padding: 0 20px;
   }
   .comment-btn {
     width: 100px;
     height: 40px;
-    border: 1px solid $color-primary;
+    border: 2px solid $color-primary;
     margin: 10px 20px;
     color: $color-dark;
     border-radius: 10px;
+    background-color: $color-white;
+  }
+  .comment-btn:hover {
+    background-color: $color-primary;
+    color: $color-white;
   }
 }
 </style>
