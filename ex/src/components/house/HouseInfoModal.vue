@@ -76,6 +76,6 @@ export default {
 
 <style scoped>
 .modal-table {
-  border: rgb(245, 245, 208);
+  border: #fff3cd;
 }
 </style>

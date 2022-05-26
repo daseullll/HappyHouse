@@ -345,7 +345,7 @@ ul {
 }
 .mapoverlaybox li:hover {
   color: #fff;
-  background: rgb(205, 205, 151);
+  background: rgb(185, 185, 142);
 }
 .mapoverlaybox li:hover .up {
   background-position: 0 0px;
