@@ -1,13 +1,8 @@
 <template>
   <tr>
+    <!-- s -->
     <td>
-      <router-link
-        :to="{
-          name: 'boardDetail',
-          params: { articleno: article.articleno },
-        }"
-        >{{ article.subject }}</router-link
-      >
+      <div>{{ article.subject }}</div>
     </td>
     <td>{{ article.userid }}</td>
     <td>{{ article.articleno }}</td>
@@ -30,6 +25,7 @@ export default {
       // return moment(new Date(regtime)).format("YYYY.MM.DD");
     },
   },
+  methods: {},
 };
 </script>
 

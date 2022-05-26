@@ -66,6 +66,14 @@
       </router-link>
     </div>
     <!--버튼 끝-->
+    <div class="empty"></div>
+    <!--댓글 시작-->
+    <div class="comment-board-box">
+      <span class="fs-28 notoMid comment-id">{{ article.userid }}</span>
+      <input id="comment" v-model="boardComment" trim />
+      <button class="comment-btn notoMid">확인</button>
+    </div>
+    <!--댓글 끝!-->
   </div>
 </template>
 
@@ -151,6 +159,7 @@ export default {
     span {
       text-align: center;
       align-items: center;
+      justify-content: center;
     }
   }
   .detail-btn-delete,
@@ -186,5 +195,33 @@ export default {
     justify-content: center;
   }
   justify-content: center;
+}
+.comment-board-box {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 20px 40px;
+  span {
+    display: inline-block;
+    width: 130px;
+    background-color: $color-sub;
+    text-align: left;
+    color: $color-dark;
+    justify-content: center;
+    align-content: center;
+  }
+  #comment {
+    border: 1px solid $color-gray-5;
+    margin: 10px 10px;
+    border-radius: 10px;
+  }
+  .comment-btn {
+    width: 100px;
+    height: 40px;
+    border: 1px solid $color-primary;
+    margin: 10px 20px;
+    color: $color-dark;
+    border-radius: 10px;
+  }
 }
 </style>

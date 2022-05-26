@@ -1,6 +1,6 @@
 <template>
   <tbody>
-    <b-tr v-if="!modifyMode">
+    <b-tr>
       <b-td>{{ this.aptName }}</b-td>
       <b-td>{{ dealYear }}-{{ dealMonth }}-{{ dealDay }}</b-td>
       <b-td
@@ -18,9 +18,9 @@ export default {
   props: {
     aptCode: String,
     aptName: String,
-    dealYear: String,
-    dealMonth: String,
-    dealDay: String,
+    dealYear: Number,
+    dealMonth: Number,
+    dealDay: Number,
     dealAmount: String,
   },
   filters: {
