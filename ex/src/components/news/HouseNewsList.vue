@@ -67,7 +67,7 @@ ul {
 }
 .house-list-box {
   height: 600px;
-  overflow: scroll;
+  //overflow: scroll;
 }
 // .show-news {
 //   display: inline-flex;
