@@ -29,7 +29,7 @@
             </button>
           </div>
         </b-col>
-        <b-col style="text-align: center" class="main-img">
+        <b-col style="text-align: center, z-index: 1;" class="main-img">
           <img src="@/assets/images/main.png" />
         </b-col>
       </b-row>
@@ -246,7 +246,7 @@ export default {
     left: 0;
     bottom: 0;
     margin-left: 60px;
-    margin-bottom: 30px;
+    margin-bottom: -20px;
   }
 }
 .num3-img {
@@ -295,7 +295,8 @@ export default {
 }
 .num1 {
   width: 100vw;
-  height: 800px;
+  height: vh(1440px);
+  padding-top: 50px;
 
   background-image: linear-gradient(
     to bottom,

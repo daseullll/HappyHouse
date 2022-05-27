@@ -38,9 +38,6 @@
 |                                                               BE                                                                |                                                               FE                                                               |
 |                                           BackEnd 개발환경 구축 DB 설계 REST API 설계                                           |                                    FrontEnd 개발환경 구축 FrontEnd 화면 설계 페이지 디자인                                     |
 
-DB 설계
-REST API 설계 |
-
 ## 💛 프로젝트 소개
 
 글작성하기
@@ -79,9 +76,8 @@ root
 
 ### 📂 프로젝트 관련 문서
 
-[🎨 프로토타입, 기획서]()
+[🎨 프로토타입, 기획서](https://scratch-octopus-16f.notion.site/UI-93d65c9143664cf38b81e07fcc4be42c)
 
 [✅ 프로젝트 백로그]()
 
-[📡 API 명세서]()
-[🗒 Notion 회의록]()
+[📡 요구사항 명세서](https://scratch-octopus-16f.notion.site/f740d4f0b219489b90550df89f2e1729)
